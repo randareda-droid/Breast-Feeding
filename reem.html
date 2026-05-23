@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reem & Lina — Postpartum Nutrition Plan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Tajawal:wght@300;400;700&display=swap');
+:root{--cream:#fff5f8;--warm:#fde8f0;--accent:#e8709a;--pink:#d4457a;--deep:#8b1a50;
+  --green:#3a8c6a;--gold:#c89a30;--text:#2d0a1a;--muted:#7a4060;--blush:#f5c0d0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text)}
+/* LANG BAR */
+.lang-bar{display:flex;justify-content:center;background:#fff;padding:10px;border-bottom:1px solid var(--blush);gap:8px;position:sticky;top:0;z-index:100}
+.lbtn{padding:6px 22px;border-radius:20px;border:2px solid var(--blush);background:#fff;cursor:pointer;font-weight:700;font-size:0.82rem;color:var(--muted);transition:all .2s}
+.lbtn.on{background:var(--deep);border-color:var(--deep);color:#fff}
+/* HERO */
+.hero{background:linear-gradient(135deg,#8b1a50 0%,#c04580 50%,#e8709a 100%);padding:44px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(255,255,255,.1) 0%,transparent 60%)}
+.hero-icon{font-size:50px;margin-bottom:10px;position:relative}
+.hero-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;line-height:1.3;margin-bottom:8px;position:relative}
+.hero-sub{color:rgba(255,255,255,.88);font-size:0.95rem;position:relative}
+/* TABS */
+.tab-bar{display:flex;background:#fff;border-bottom:2px solid var(--blush);overflow-x:auto;scrollbar-width:none;position:sticky;top:56px;z-index:99;box-shadow:0 2px 8px rgba(139,26,80,.08)}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex:1;min-width:80px;padding:13px 6px;text-align:center;cursor:pointer;font-size:0.65rem;font-weight:700;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;border:none;background:none}
+.tab-btn:hover{color:var(--pink)}
+.tab-btn.on{color:var(--deep);border-bottom:3px solid var(--deep)}
+/* SECTIONS */
+.sec{display:none;padding:26px 18px;max-width:900px;margin:0 auto}
+.sec.on{display:block}
+/* CARDS */
+.card{background:#fff;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 14px rgba(139,26,80,.08);border-left:4px solid var(--accent)}
+.card.g{border-left-color:var(--green)}.card.gold{border-left-color:var(--gold)}
+.card.pk{border-left-color:var(--pink)}.card.red{border-left-color:#c0392b}
+.card.bp{border-left-color:#7040d0;background:linear-gradient(135deg,#faf8ff,#f0ecff)}
+.card.nv{border-left-color:var(--deep)}
+.ct{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.ar .ct{font-family:'Tajawal',sans-serif}
+/* GRIDS */
+.ngrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:12px;margin-bottom:16px}
+.nbox{background:linear-gradient(135deg,#fff5f8,#fde8f0);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--blush)}
+.nbox .icon{font-size:26px;margin-bottom:5px}.nbox .lbl{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.nbox .val{font-size:1.2rem;font-weight:700;color:var(--deep)}.nbox .unit{font-size:0.75rem;color:var(--muted)}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.fi{background:var(--warm);border-radius:10px;padding:12px;text-align:center;border:1px solid var(--blush)}
+.fi .icon{font-size:22px;margin-bottom:4px}.fi .nm{font-size:0.8rem;font-weight:700;color:var(--text)}
+.fi .why{font-size:0.68rem;color:var(--muted);margin-top:2px}
+.fi .por{font-size:0.66rem;color:var(--pink);margin-top:3px;font-weight:700;background:#fff0f5;border-radius:5px;padding:2px 4px;display:inline-block}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
+.dc{background:linear-gradient(135deg,#fff5f8,#fde8f0);border-radius:12px;padding:16px;border:1px solid var(--blush);text-align:center}
+.dc .di{font-size:30px;margin-bottom:6px}.dc .dn{font-weight:700;font-size:0.88rem;color:var(--deep);margin-bottom:4px}
+.dc .dd{font-size:0.73rem;color:var(--muted);line-height:1.5}
+/* DAY PLAN */
+.day-sel{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.dbtn{padding:7px 14px;border:2px solid var(--blush);border-radius:18px;background:#fff;cursor:pointer;font-size:0.8rem;font-weight:700;color:var(--muted);transition:all .2s}
+.dbtn.on{background:var(--deep);border-color:var(--deep);color:#fff}
+.mblock{display:flex;gap:12px;margin-bottom:12px}
+.mtc{min-width:68px;text-align:right}
+.ar .mtc{text-align:left}
+.mtime{font-size:0.7rem;font-weight:700;color:var(--pink);text-transform:uppercase}
+.mtype{font-size:0.63rem;color:var(--muted)}
+.mdot{width:11px;height:11px;border-radius:50%;background:var(--pink);flex-shrink:0;margin-top:3px;position:relative;z-index:1}
+.mdot::after{content:'';position:absolute;left:4px;top:11px;width:2px;height:calc(100% + 12px);background:var(--blush)}
+.mblock:last-child .mdot::after{display:none}
+.mc{flex:1;background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 2px 6px rgba(139,26,80,.06)}
+.mn{font-weight:700;font-size:0.88rem;color:var(--text);margin-bottom:5px}
+.mrows{font-size:0.8rem;color:var(--muted)}
+.mrow{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dashed #f5d0e0}
+.mrow:last-child{border-bottom:none}
+.iqty{color:var(--pink);font-weight:700;font-size:0.76rem;white-space:nowrap;margin-left:6px}
+.mcal{display:inline-block;background:var(--warm);color:var(--deep);font-size:0.68rem;font-weight:700;padding:2px 10px;border-radius:8px;margin-top:6px}
+/* FEEDING */
+.fstep{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.snum{width:32px;height:32px;border-radius:50%;background:var(--deep);color:#fff;font-weight:700;font-size:0.88rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stitle{font-size:0.9rem;font-weight:700;color:var(--deep);margin-bottom:3px}
+.sbody{font-size:0.8rem;color:var(--muted);line-height:1.6}
+/* SUPPS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:12px}
+.sc{background:#fff;border-radius:12px;padding:16px;border:1px solid var(--blush);box-shadow:0 2px 6px rgba(139,26,80,.05)}
+.sci{font-size:26px;margin-bottom:6px}.scn{font-weight:700;font-size:0.9rem;color:var(--deep);margin-bottom:3px}
+.scd{font-size:0.76rem;color:var(--muted);line-height:1.6;margin-bottom:7px}
+.sv{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 9px;border-radius:9px}
+.sv.ok{background:#e8f8ee;color:#2a7a4a;border:1px solid #a0d8b0}
+.sv.ca{background:#fff3e0;color:#8a5000;border:1px solid #f0c070}
+.sv.no{background:#fff0f0;color:#c02020;border:1px solid #f0a0a0}
+/* HERBS */
+.htab{width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:10px}
+.htab th{background:linear-gradient(90deg,var(--deep),var(--pink));color:#fff;padding:9px 11px;text-align:left;font-weight:700}
+.htab td{padding:9px 11px;border-bottom:1px solid var(--blush);vertical-align:top;line-height:1.5}
+.htab tr:nth-child(even) td{background:#fff8fa}
+.badge{display:inline-block;font-size:0.67rem;font-weight:700;padding:2px 8px;border-radius:9px}
+.badge.ok{background:#e0f5ea;color:#1a7a40;border:1px solid #90d0b0}
+.badge.lm{background:#fff5d8;color:#8a5500;border:1px solid #d8b040}
+.badge.no{background:#ffe8e8;color:#b02020;border:1px solid #e08080}
+/* AVOID */
+.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:9px}
+.ai{background:#fff5f5;border:1px solid #ffd0d0;border-radius:9px;padding:11px;text-align:center;font-size:0.78rem;color:#c0392b;font-weight:700}
+/* TIPS */
+.tlist{list-style:none}
+.tlist li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--blush);font-size:0.86rem;line-height:1.6}
+.tlist li:last-child{border-bottom:none}
+.tico{font-size:18px;flex-shrink:0;margin-top:1px}
+/* TAGS */
+.tag{display:inline-block;background:var(--warm);color:var(--deep);font-size:0.69rem;font-weight:700;padding:3px 9px;border-radius:9px;margin:2px;border:1px solid var(--blush)}
+/* MISC */
+.cal-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:14px}
+.cbox{flex:1;min-width:100px;background:linear-gradient(135deg,var(--deep),var(--pink));border-radius:10px;padding:12px;text-align:center;color:#fff}
+.cbox .cv{font-size:1.3rem;font-weight:700}.cbox .cl{font-size:0.68rem;opacity:.85;text-transform:uppercase;letter-spacing:1px}
+.banner{background:linear-gradient(135deg,#fde8f0,#fcd0e0);border-radius:12px;padding:16px 20px;margin-bottom:18px;display:flex;align-items:center;gap:12px;border:1px solid var(--blush)}
+.banner-icon{font-size:38px}
+.bptitle{font-size:0.9rem;font-weight:700;color:var(--deep);margin-bottom:3px}
+.bpsub{font-size:0.8rem;color:var(--pink)}
+.alert-box{background:linear-gradient(135deg,#fff0f5,#ffe0ec);border:2px solid #f090b0;border-radius:12px;padding:14px 18px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px}
+.wbar{margin:10px 0}.wlabel{display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px}
+.wtrack{height:16px;background:#fde0ec;border-radius:18px;overflow:hidden}
+.wfill{height:100%;background:linear-gradient(90deg,var(--pink),var(--accent));border-radius:18px;width:82%}
+.stitle-h{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--deep);margin-bottom:5px}
+.ar .stitle-h{font-family:'Tajawal',sans-serif}
+.ssub{color:var(--muted);font-size:0.86rem;margin-bottom:20px}
+.prow{background:#fff8fa;border-radius:10px;padding:12px 14px;margin-bottom:9px;border:1px solid var(--blush);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px}
+.pleft{flex:1;min-width:180px}.pname{font-weight:700;font-size:0.9rem;color:var(--deep);margin-bottom:7px}
+.pitems{padding-left:14px;color:var(--muted);font-size:0.76rem;line-height:1.7}
+.ar .pitems{padding-right:14px;padding-left:0}
+.ptarget{background:var(--deep);color:#fff;border-radius:18px;padding:3px 12px;font-size:0.76rem;font-weight:700;display:inline-block;margin-bottom:5px}
+.pkcal{font-size:0.69rem;color:var(--pink);line-height:1.5;text-align:center}
+.bpgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.bpcard{background:#fff;border-radius:9px;padding:13px;border:1px solid #d0c0f0}
+.bptop{font-weight:700;color:#6040c0;margin-bottom:5px;font-size:0.86rem}
+.bptext{font-size:0.76rem;color:var(--muted);line-height:1.7}
+footer{text-align:center;padding:22px;font-size:0.73rem;color:var(--muted);border-top:1px solid var(--blush)}
+.ar{direction:rtl;font-family:'Tajawal',sans-serif}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <button class="lbtn on" id="btn-en" onclick="switchLang('en')">🇬🇧 English</button>
+  <button class="lbtn" id="btn-ar" onclick="switchLang('ar')">🇪🇬 عربي</button>
+</div>
+
+<div id="app"><!-- filled by JS --></div>
+
+<script>
+var currentLang = 'en';
+var currentDay = 0;
+var currentTab = 'needs';
+
+const mealPlans = [
+  { day:"Day 1 / اليوم ١", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Ful Medames Plate / فول مدمس",rows:[
+      ["Ful medames (cooked)","¾ cup (135g) · 30g CHO"],
+      ["Boiled egg","1 egg · 6g protein"],
+      ["Aish baladi","1 loaf (~100g) · 50g CHO"],
+      ["Tomatoes + cucumber","½ cup each"],
+      ["Olive oil drizzle","1 tsp"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Fruit & Nuts / فاكهة ومكسرات",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Almonds لوز","15g (12 pieces)"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Chicken & Molokhia / فراخ وملوخية",rows:[
+      ["Grilled chicken thigh","120g"],
+      ["Molokhia soup","1 cup"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Green salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Lentil Soup & Egg / عدس وبيض",rows:[
+      ["Red lentil soup","1.5 cups · 30g CHO"],
+      ["Boiled egg","1"],
+      ["Gebna beida جبنة","30g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 2 / اليوم ٢", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Oats Porridge / شوفان",rows:[
+      ["Oats شوفان (dry)","½ cup (40g) · 27g CHO"],
+      ["Full-fat milk","1 cup (to cook)"],
+      ["Banana موز","½ medium · 12g CHO"],
+      ["Honey عسل","1 tsp · 5g CHO"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Cheese & Almonds / جبنة ومكسرات",rows:[
+      ["Gebna beida جبنة","30g"],
+      ["Veg sticks (cucumber, carrots)","½ cup"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Bolti / سمك بلطي",rows:[
+      ["Bolti (tilapia) fillet","150g"],
+      ["Baked sweet potato","1 medium (150g) · 26g CHO"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Steamed vegetables","side"],
+      ["Olive oil drizzle","1 tsp"]]},
+    {time:"4:00 PM",type:"Snack",name:"Guava & Walnuts / جوافة وجوز",rows:[
+      ["Guava جوافة","1 medium · 12g CHO"],
+      ["Walnuts جوز","15g"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Shakshuka / شكشوكة",rows:[
+      ["Eggs in tomato sauce","3 eggs"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Side salad","cup"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 3 / اليوم ٣", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Veggie Omelette / أومليت",rows:[
+      ["Eggs بيض","2 eggs"],
+      ["Spinach + tomatoes","handful"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Full-fat milk","1 cup"],
+      ["Orange برتقال","1 medium · 15g CHO"]]},
+    {time:"10:00 AM",type:"Snack",name:"Apple & Almonds / تفاحة ومكسرات",rows:[
+      ["Apple تفاحة","1 medium · 18g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Chicken & Warak Enab / فراخ وورق عنب",rows:[
+      ["Grilled chicken","120g"],
+      ["Stuffed grape leaves","4–5 pieces · 25g CHO"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini dressing طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Hummus & Eggs / حمص وبيض",rows:[
+      ["Hummus حمص","3 tbsp (45g) · 12g CHO"],
+      ["Boiled eggs","2"],
+      ["Gebna beida جبنة","30g"],
+      ["Fattoush salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 4 / اليوم ٤", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Cheese & Tomato / جبنة وطماطم",rows:[
+      ["Gebna beida جبنة","40g"],
+      ["Aish baladi","1 loaf (~100g) · 50g CHO"],
+      ["Sliced tomatoes طماطم","2 medium"],
+      ["Boiled egg","1"],
+      ["Olive oil drizzle","1 tsp"],
+      ["Mint tea نعناع","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Banana & Almonds / موز ولوز",rows:[
+      ["Banana موز","1 medium · 23g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Liver & Rice / كبدة وأرز",rows:[
+      ["Chicken or beef liver كبدة","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Sautéed veg (onion, pepper)","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi / زبادي",rows:[
+      ["Full-fat zabadi","1 cup"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Vegetable Soup & Eggs / شوربة وبيض",rows:[
+      ["Vegetable soup (carrot, zucchini, tomato)","1.5 cups"],
+      ["Scrambled eggs","2"],
+      ["Gebna beida جبنة","40g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 5 / اليوم ٥", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Ful & Egg / فول وبيض",rows:[
+      ["Ful medames فول","¾ cup (135g) · 30g CHO"],
+      ["Egg (fried in 1tsp olive oil)","1 egg"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Sliced tomatoes + cucumber","side"],
+      ["Lemon mint water","1 glass"]]},
+    {time:"10:00 AM",type:"Snack",name:"Orange & Almonds / برتقال ولوز",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Salmon / سالمون مشوي",rows:[
+      ["Grilled salmon سالمون","130g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Steamed zucchini كوسا","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Lentil Soup & Egg / عدس وبيض",rows:[
+      ["Red lentil soup عدس","1.5 cups · 30g CHO"],
+      ["Boiled egg","1"],
+      ["Gebna beida جبنة","30g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 6 / اليوم ٦", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Herb Omelette / أومليت عطري",rows:[
+      ["Eggs","2"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Guava جوافة","½ medium · 6g CHO"],
+      ["Full-fat milk","1 cup"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Hummus & Veggies / حمص وخضار",rows:[
+      ["Hummus حمص","3 tbsp (45g) · 12g CHO"],
+      ["Veg sticks (carrot, cucumber)","½ cup"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Beef Kofta & Rice / كفتة ولحم",rows:[
+      ["Grilled beef kofta كفتة","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Roasted vegetables خضار","½ cup"],
+      ["Salad","side"],
+      ["Small fresh orange juice","½ glass"]]},
+    {time:"4:00 PM",type:"Snack",name:"Orange & Seeds / برتقال وبذور",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Mixed seeds (sunflower + pumpkin)","15g"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Chicken Molokhia & Rice / ملوخية",rows:[
+      ["Grilled chicken شرائح","120g"],
+      ["Molokhia soup","1 cup"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Pickled vegetables","small side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 7 / اليوم ٧", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Oats & Egg / شوفان وبيض",rows:[
+      ["Oats شوفان (dry)","½ cup (40g) · 27g CHO"],
+      ["Full-fat milk","1 cup (to cook)"],
+      ["Banana موز","½ medium · 12g CHO"],
+      ["Honey عسل","1 tsp · 5g CHO"],
+      ["Boiled egg","1"],
+      ["Orange برتقال","1 medium · 15g CHO"]]},
+    {time:"10:00 AM",type:"Snack",name:"Dates & Walnuts / تمر وجوز",rows:[
+      ["Dates تمر","3 pieces · 20g CHO"],
+      ["Walnuts جوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Lamb & Rice / ضأن مشوي",rows:[
+      ["Grilled lean lamb ضأن","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Roasted vegetables خضار","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi / زبادي",rows:[
+      ["Full-fat zabadi","1 cup"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Shakshuka / شكشوكة",rows:[
+      ["Eggs in tomato sauce","3 eggs"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Spinach سبانخ","handful"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]}
+];
+
+const exactCals = [
+  [535, 135, 515, 197, 345, 197],  // Day 1 ~1924 kcal
+  [376, 175, 555, 135, 345, 197],  // Day 2 ~1783 kcal
+  [479, 140, 543, 197, 340, 197],  // Day 3 ~1896 kcal
+  [465, 190, 440, 149, 380, 197],  // Day 4 ~1821 kcal
+  [420, 135, 510, 197, 345, 197],  // Day 5 ~1804 kcal
+  [459, 120, 435, 135, 420, 197],  // Day 6 ~1766 kcal
+  [496, 157, 445, 149, 355, 197],  // Day 7 ~1799 kcal
+];
+
+
+
+
+
+
+// ─── ALL CONTENT ────────────────────────────────────────────────────────────
+var CONTENT = {
+en: {
+  heroTitle: "Reem's Postpartum<br>Nutrition Plan",
+  heroSub: "Breastfeeding Guide · For Baby Girl Lina 👶🏻🎀 · Athlete Edition",
+  tabs: ["🥗 Needs","💜 BP Guide","🍎 Foods","🍵 Tea & Drinks","📅 7 Days","👶 Lina","💊 Supps","⚠️ Avoid"],
+  tabIds: ["needs","bp","foods","drinks","plan","feeding","supps","avoid"],
+  footer: "Postpartum Nutrition Plan · Reem & Baby Girl Lina 🎀"
+},
+ar: {
+  heroTitle: "خطة تغذية ريم<br>بعد الولادة",
+  heroSub: "دليل الرضاعة الطبيعية · لطفلتها لينا 👶🏻🎀 · نسخة الرياضية",
+  tabs: ["🥗 الاحتياجات","💜 ضغط الدم","🍎 الأطعمة","🍵 الشاي والمشروبات","📅 ٧ أيام","👶 لينا","💊 مكملات","⚠️ تجنبي"],
+  tabIds: ["needs","bp","foods","drinks","plan","feeding","supps","avoid"],
+  footer: "خطة تغذية بعد الولادة · ريم وطفلتها لينا 🎀"
+}
+};
+
+// ─── SECTION RENDERERS ──────────────────────────────────────────────────────
+function renderNeeds(l) {
+  var ar = l==='ar';
+  return `
+  <div class="banner"><div class="banner-icon">🎀</div><div>
+    <div class="bptitle">${ar?'تغذيتك = تغذية لينا':'Nourishing yourself = Nourishing Lina'}</div>
+    <div class="bpsub">${ar?'ريم رياضية — متطلبات تعافيها أعلى. التغذية الجيدة تحمي ريم ولينا وتدعم فقدان الوزن الآمن.':'Reem is an athlete — her recovery demands are higher. Quality nutrition protects both Reem and Lina, and supports safe gradual weight loss.'}</div>
+  </div></div>
+  <div class="alert-box"><div style="font-size:26px">💜</div><div>
+    <p style="font-weight:700;color:#6040c0;margin-bottom:5px">${ar?'⚠️ تسمم الحمل وضغط الدم — تنبيه مهم':'⚠️ Pre-eclampsia & Blood Pressure — Important Notice'}</p>
+    <p style="font-size:0.82rem;color:#4a3080;line-height:1.7">${ar?'ريم عانت من تسمم الحمل وتأخذ دواءً لضغط الدم. هذه الخطة تعتمد مبادئ حمية DASH — غنية بالبوتاسيوم والمغنيسيوم والكالسيوم؛ منخفضة الصوديوم.':'Reem had pre-eclampsia and is on BP medication. This plan uses <strong>DASH diet principles</strong> — high potassium, magnesium, calcium; low sodium. See the 💜 BP Guide tab.'}</p>
+  </div></div>
+  <h2 class="stitle-h">${ar?'الاحتياجات الغذائية':'Nutritional Requirements'}</h2>
+  <p class="ssub">${ar?'ريم ترضع لينا (كل 1–2 ساعة!) وهي رياضية — احتياجها من البروتين والسوائل أعلى من المعدل.':'Reem is breastfeeding Lina every 1–2 hours and is an athlete — her protein and fluid needs are elevated.'}</p>
+  <div class="card" style="background:linear-gradient(135deg,#fff5f8,#fde8f0);border-left-color:var(--deep)">
+    <div class="ct">${ar?'⚡ احتياجات ريم الكالورية — رياضية + مرضعة':'⚡ Reem\'s Calorie Needs — Athlete + Breastfeeding'}</div>
+    <p style="font-size:0.86rem;line-height:1.9;color:var(--text)">${ar?
+      'معظم الأمهات المرضعات يحتجن <strong style="color:var(--deep)">٢١٠٠–٢٤٠٠ سعر يومياً</strong> للمحافظة على الوزن والحليب.<br>هذه الخطة تستخدم <strong style="color:var(--green)">١٨٠٠–٢٠٠٠ سعر يومياً</strong> لفقدان وزن آمن وتدريجي مع حماية حليب لينا.<br><span style="color:#b03020;font-weight:700">⚠️ لا تنزلي عن ١٧٠٠–١٨٠٠ سعر يومياً — الحميات القاسية تُقلّل الحليب وترفع الكورتيزول مما يُفاقم ضغط الدم.</span>'
+      :'Most breastfeeding mums need about <strong style="color:var(--deep)">2,100–2,400 kcal/day</strong> to maintain weight and milk supply.<br>This plan uses <strong style="color:var(--green)">1,800–2,000 kcal/day</strong> for safe gradual weight loss while protecting Lina\'s milk supply.<br><span style="color:#b03020;font-weight:700">⚠️ Never go below 1,700–1,800 kcal/day — crash dieting reduces milk supply and raises cortisol, worsening blood pressure.</span>'}</p>
+  </div>
+  <div class="cal-row">
+    <div class="cbox"><div class="cv">1,800–2,000</div><div class="cl">${ar?'سعر/يوم':'kcal/day'}</div></div>
+    <div class="cbox"><div class="cv">≥80g</div><div class="cl">${ar?'بروتين/يوم':'protein/day'}</div></div>
+    <div class="cbox"><div class="cv">3.5–4.5L</div><div class="cl">${ar?'سوائل/يوم':'fluids/day'}</div></div>
+    <div class="cbox"><div class="cv">&lt;1,500mg</div><div class="cl">${ar?'صوديوم/يوم':'sodium/day'}</div></div>
+  </div>
+  <div class="ngrid">
+    ${[['🦴',ar?'كالسيوم':'Calcium','1,000','mg/day'],['🩸',ar?'حديد':'Iron','9','mg/day'],['🐟',ar?'أوميجا 3':'Omega-3','200','mg/day'],['☀️',ar?'فيتامين د':'Vit D','600','IU/day'],['🍌',ar?'بوتاسيوم':'Potassium','2,800','mg/day'],['🌿',ar?'مغنيسيوم':'Magnesium','310','mg/day'],['💊',ar?'ب12':'B12','2.8','mcg/day'],['🌿',ar?'يود':'Iodine','290','mcg/day']].map(function(n){return '<div class="nbox"><div class="icon">'+n[0]+'</div><div class="lbl">'+n[1]+'</div><div class="val">'+n[2]+'</div><div class="unit">'+n[3]+'</div></div>';}).join('')}
+  </div>
+  <div class="card g">
+    <div class="ct">${ar?'💧 الترطيب — ضرورة قصوى لريم':'💧 Hydration — Critical for Reem'}</div>
+    <div class="wbar"><div class="wlabel"><span>${ar?'الهدف (رياضية + مرضعة)':'Daily goal (athlete + breastfeeding)'}</span><strong style="color:var(--pink)">3.5–4.5 L</strong></div><div class="wtrack"><div class="wfill"></div></div></div>
+    <p style="font-size:0.81rem;color:var(--muted)">${ar?'حليب الثدي 87٪ ماء. لينا ترضع كل 1–2 ساعة مما يعني إنتاجاً شبه مستمر. بصفتها رياضية فقدان السوائل أعلى. اشربي مع كل رضعة بدون استثناء.':'Breast milk is 87% water. Lina feeds every 1–2 hours — nearly constant milk production. As an athlete, fluid losses are also higher. Drink with every single feed — non-negotiable.'}</p>
+  </div>`;
+}
+
+function renderBP(l) {
+  var ar = l==='ar';
+  return `
+  <h2 class="stitle-h">${ar?'💜 دليل التغذية وضغط الدم':'💜 Blood Pressure & Nutrition Guide'}</h2>
+  <p class="ssub">${ar?'ريم عانت من تسمم الحمل وتأخذ دواءً لضغط الدم. مبادئ حمية DASH هذه آمنة أثناء الرضاعة وتدعم ضغط دم صحي.':'Reem had pre-eclampsia and is on BP medication. These DASH diet principles are safe during breastfeeding and actively support healthy blood pressure.'}</p>
+  <div class="card bp">
+    <div class="ct" style="color:#6040c0">${ar?'✅ أطعمة تُخفّض ضغط الدم':'✅ Foods That Lower Blood Pressure'}</div>
+    <div class="bpgrid">
+      <div class="bpcard"><div class="bptop">🍌 ${ar?'الأطعمة الغنية بالبوتاسيوم':'Potassium-Rich Foods'}</div><div class="bptext">${ar?'موز، بطاطا حلوة، عدس، سبانخ، ملوخية، أفوكادو، برتقال، طماطم. استهدفي 2800 ملجم يومياً. البوتاسيوم يُعادل تأثير الصوديوم على الضغط.':'Banana, sweet potato, lentils, spinach, molokhia, avocado, orange, tomato. Aim for 2,800 mg/day. Potassium counteracts sodium\'s effect on BP.'}</div></div>
+      <div class="bpcard"><div class="bptop">🌿 ${ar?'الأطعمة الغنية بالمغنيسيوم':'Magnesium-Rich Foods'}</div><div class="bptext">${ar?'سبانخ، خضروات ورقية، مكسرات (لوز، جوز)، بذور، شوفان، أرز بني. المغنيسيوم يُرخّي الأوعية الدموية.':'Spinach, dark leafy greens, nuts (almonds, walnuts), seeds, oats, brown rice. Magnesium relaxes blood vessels.'}</div></div>
+      <div class="bpcard"><div class="bptop">🐟 ${ar?'أحماض أوميجا 3':'Omega-3 Fatty Acids'}</div><div class="bptext">${ar?'سالمون، سردين، ماكريل 2–3 مرات أسبوعياً. أوميجا 3 تُقلّل الالتهاب ولها تأثير موثَّق في خفض الضغط. وضرورية أيضاً لنمو مخ لينا.':'Salmon, sardines, mackerel 2–3×/week. Omega-3 reduces inflammation and lowers BP. Also vital for Lina\'s brain development.'}</div></div>
+      <div class="bpcard"><div class="bptop">🦴 ${ar?'مصادر الكالسيوم':'Calcium Sources'}</div><div class="bptext">${ar?'لبن، زبادي، جبنة بيضاء، سردين بعظامه. نقص الكالسيوم مرتبط بتسمم الحمل.':'Milk, yoghurt, white cheese, sardines with bones. Low calcium was linked to pre-eclampsia.'}</div></div>
+      <div class="bpcard"><div class="bptop">🌺 ${ar?'شاي الكركديه':'Hibiscus Tea (Karkade)'}</div><div class="bptext">${ar?'الدراسات تُظهر أنه يُخفّض ضغط الدم الانقباضي حتى 7 ملمتر. غني بمضادات الأكسدة. بدون كافيين.':'Studies show hibiscus lowers systolic BP by up to 7 mmHg. Antioxidant-rich. Caffeine-free.'}</div></div>
+      <div class="bpcard"><div class="bptop">🧄 ${ar?'الثوم — يُشجَّع':'Garlic — Actively Encouraged'}</div><div class="bptext">${ar?'الأليسين في الثوم ثبتت فاعليته في خفض ضغط الدم. أضيفي 2–4 فصوص يومياً لكل طبق ممكن.':'Allicin in garlic is proven to lower BP. Cook 2–4 cloves daily into every dish possible.'}</div></div>
+    </div>
+  </div>
+  <div class="card red">
+    <div class="ct" style="color:#c0392b">${ar?'🚫 قيود غذائية لضبط الضغط':'🚫 Dietary Restrictions for BP Control'}</div>
+    <ul class="tlist">
+      <li><span class="tico">🧂</span><div><strong>${ar?'الملح — أقل من 1500 ملجم يومياً':'Salt — Keep Under 1,500 mg/day'}</strong><br>${ar?'لا تضيفي ملحاً. تجنّبي المخلل، الأطعمة المعلبة، الجبنة الرومي والحلومي. عوّضيه بالليمون والأعشاب والثوم.':'No added salt. Avoid pickles, canned goods, romi/halloumi cheese. Season with lemon, herbs, garlic instead.'}</div></li>
+      <li><span class="tico">🍊</span><div><strong>${ar?'الجريب فروت — استشيري الطبيب أولاً':'Grapefruit — Ask Doctor First'}</strong><br>${ar?'يتفاعل مع بعض حاصرات قنوات الكالسيوم (مثل أملوديبين). إذا كانت ريم على هذا النوع، تجنّبيه.':'Interacts with some calcium channel blockers (e.g. amlodipine). If Reem is on this type, avoid completely.'}</div></li>
+      <li><span class="tico">☕</span><div><strong>${ar?'الكافيين — حتى 200 ملجم يومياً فقط':'Caffeine — Max 200 mg/day Total'}</strong><br>${ar?'الكافيين يسبب ارتفاعاً مؤقتاً في الضغط. مع وجود دواء الضغط، البقاء ضمن 200 ملجم يومياً مهم.':'Caffeine causes transient BP spikes. Staying within 200 mg/day is important with BP medication.'}</div></li>
+      <li><span class="tico">🍬</span><div><strong>${ar?'السكر المضاف والكربوهيدرات المكررة':'Added Sugar & Refined Carbs — Minimise'}</strong><br>${ar?'السكر العالي يرفع الضغط ويزيد الوزن. اختاري الحبوب الكاملة والبقوليات والفاكهة.':'High sugar raises BP and weight. Choose whole grains, legumes, and fruit over sweets and white bread.'}</div></li>
+    </ul>
+  </div>
+  <div class="card bp">
+    <div class="ct" style="color:#6040c0">${ar?'💊 دواء ضغط الدم — ملاحظة للرضاعة':'💊 BP Medication — Breastfeeding Note'}</div>
+    <p style="font-size:0.83rem;line-height:1.8;color:var(--muted)">${ar?'معظم أدوية ضغط الدم المستخدمة بعد الولادة (لابيتالول، نيفيديبين، ميثيل دوبا، أملوديبين) متوافقة مع الرضاعة الطبيعية بالجرعات القياسية. يجب على ريم تأكيد دوائها المحدد مع طبيبها. لا تقف أو تعدّل دواء الضغط بدون استشارة طبية.':'Most antihypertensive medications used post-partum (labetalol, nifedipine, methyldopa, amlodipine) are compatible with breastfeeding at standard doses. Reem should confirm her specific medication with her physician. Never stop or adjust BP medication without medical advice.'}</p>
+  </div>`;
+}
+
+function renderFoods(l) {
+  var ar = l==='ar';
+  var portions = ar ? [
+    {icon:'🌾',name:'حبوب ونشويات',items:['½ رغيف بلدي كبير (~40 جم) = حصة','½ كوب أرز بني أو معكرونة مطبوخ = حصة','1 بطاطس وسط مسلوقة = حصة','3 ملاعق كبيرة شوفان جاف = حصة'],target:'5–6 حصص / يوم',kcal:'500–600 سعر/يوم'},
+    {icon:'🥩',name:'البروتينات',items:['90 جم دجاج أو ديك رومي = حصة','75–90 جم لحم بقري أو ضأن = حصة','100 جم سمك مطبوخ = حصة','2 بيضة = حصة','1 كوب عدس أو فاصوليا = حصة'],target:'4–5 حصص / يوم',kcal:'100–150 سعر / حصة'},
+    {icon:'🥛',name:'الألبان (منخفضة الصوديوم)',items:['1 كوب لبن (200–250 مل) = حصة','1 زبادي صغير (125–150 جم) = حصة','30 جم جبنة بيضاء (ليس رومي أو حلومي)'],target:'3 حصص / يوم',kcal:'300–400 سعر/يوم'},
+    {icon:'🫚',name:'الدهون المضافة',items:['1 ملعقة زيت زيتون = حصة (مفضّل للضغط)','6–7 حبات مكسرات = حصة','1 ملعقة طحينة = حصة'],target:'4–5 حصص / يوم',kcal:'200–250 سعر/يوم'},
+    {icon:'🍎',name:'الفاكهة',items:['1 موزة (بوتاسيوم ممتاز) = حصة','1 برتقالة أو جوافة = حصة','1 كوب توت أو شمام = حصة','3 تمرات = حصة'],target:'2–3 حصص / يوم',kcal:'150–200 سعر/يوم'},
+    {icon:'🥬',name:'الخضروات',items:['سبانخ، ملوخية، كوسا، طماطم، خيار، فلفل — بحرية ≥ 3 أكواب/يوم','ركّزي على الخضروات الورقية الداكنة للبوتاسيوم والمغنيسيوم'],target:'3 حصص أو أكثر',kcal:'~50 سعر/يوم'},
+  ] : [
+    {icon:'🌾',name:'Grains & Starches',items:['½ large baladi loaf (~40g) = 1 portion','½ cup cooked brown rice or pasta = 1 portion','1 medium boiled potato = 1 portion','3 tbsp dry oats = 1 portion'],target:'5–6 portions/day',kcal:'500–600 kcal/day'},
+    {icon:'🥩',name:'Protein Foods',items:['90g chicken or turkey (skinless) = 1 portion','75–90g lean beef or lamb = 1 portion','100g cooked fish = 1 portion','2 eggs = 1 portion','1 cup cooked lentils or beans = 1 portion'],target:'4–5 portions/day',kcal:'100–150 kcal each'},
+    {icon:'🥛',name:'Dairy — Low Sodium',items:['1 glass milk (200–250 ml) = 1 portion','1 small yoghurt (125–150g) = 1 portion','30g white cheese (gebna beida — not romi/halloumi)'],target:'3 portions/day',kcal:'300–400 kcal/day'},
+    {icon:'🫚',name:'Added Fats',items:['1 tsp olive oil = 1 portion (best fat for BP)','6–7 nuts (almonds, walnuts) = 1 portion','1 tsp tahini = 1 portion'],target:'4–5 portions/day',kcal:'200–250 kcal/day'},
+    {icon:'🍎',name:'Fruit',items:['1 banana (excellent potassium) = 1 portion','1 orange or guava = 1 portion','1 cup berries or melon = 1 portion','3 dates = 1 portion'],target:'2–3 portions/day',kcal:'150–200 kcal/day'},
+    {icon:'🥬',name:'Vegetables',items:['Spinach, molokhia, zucchini, tomato, cucumber, peppers — freely ≥ 3 cups/day','Focus on dark leafy greens for potassium & magnesium (BP support)'],target:'≥3 portions/day',kcal:'~50 kcal/day'},
+  ];
+  return `
+  <h2 class="stitle-h">${ar?'أفضل الأطعمة لريم':'Best Foods for Reem'}</h2>
+  <p class="ssub">${ar?'أطعمة متوافقة مع حمية DASH — صديقة للضغط، غنية بالبروتين للرياضية، ومدرّة للحليب للينا.':'DASH-aligned — BP-friendly, high-protein for the athlete, milk-boosting for Lina.'}</p>
+  <div class="card nv" style="margin-bottom:20px">
+    <div class="ct">${ar?'📋 إطار الحصص اليومية — ~1,900 سعر حراري':'📋 Daily Portions Framework — ~1,900 kcal/day'}</div>
+    ${portions.map(function(p){var items=p.items.map(function(i){return '<li>'+i+'</li>';}).join('');return '<div class="prow"><div class="pleft"><div class="pname">'+p.icon+' '+p.name+'</div><ul class="pitems">'+items+'</ul></div><div style="text-align:center;min-width:120px"><div class="ptarget">'+p.target+'</div><div class="pkcal">'+p.kcal+'</div></div></div>';}).join('')}
+    <p style="font-size:0.77rem;background:#fff0f5;border-radius:9px;padding:9px 13px;margin-top:9px;color:var(--muted);line-height:1.7">${ar?'💡 هذه الحصص توفر ~١٨٠٠–٢٠٠٠ سعر يومياً — آمنة لفقدان وزن ريم مع حماية حليب لينا ودعم ضغط الدم.':'💡 These portions provide ~1,800–2,000 kcal/day — safe weight loss for Reem while protecting Lina\'s milk and supporting BP.'}</p>
+  </div>
+  <div class="card">
+    <div class="ct">${ar?'🐟 الأسماك الموصى بها (2–3×/أسبوع)':'🐟 Recommended Fish (2–3×/week)'}</div>
+    <div class="fgrid">
+      ${(ar?[['🐟','البلطي / السردين','أوميجا 3 + زئبق منخفض','100 جم/حصة'],['🐠','السالمون / الماكريل','DHA + خفض الضغط','100 جم/حصة'],['🦐','الجمبري','يود + زنك','100 جم/حصة'],['🐡','التونة المعلبة','بروتين + ب12','علبة/حصة']]:[['🐟','Bolti / Sardines','Omega-3 + low mercury','100g/portion'],['🐠','Salmon / Mackerel','DHA + BP-lowering','100g/portion'],['🦐','Shrimp','Iodine + Zinc','100g/portion'],['🐡','Canned Tuna','Protein + B12','1 tin/portion']]).map(function(f){return '<div class="fi"><div class="icon">'+f[0]+'</div><div class="nm">'+f[1]+'</div><div class="why">'+f[2]+'</div><div class="por">'+f[3]+'</div></div>';}).join('')}
+    </div>
+    <p style="font-size:0.76rem;color:#c0392b;margin-top:10px;font-weight:700">${ar?'⚠️ تجنّبي: الجبنة الرومي، الحلومي، المخلل — عالية الصوديوم. عوّضيه بالليمون والأعشاب.':'⚠️ Avoid: romi cheese, halloumi, pickles — very high sodium. Use lemon and herbs instead.'}</p>
+  </div>
+  <div class="card pk">
+    <div class="ct">${ar?'🌿 مدرّات الحليب الطبيعية للينا':'🌿 Milk-Boosting Foods for Lina'}</div>
+    <div>${(ar?['⭐ يانسون','🌸 شمر','🌾 شوفان','🟤 تمر','⬛ سمسم','🌿 مورينجا','🫚 زيت زيتون','🥜 جوز ولوز']:['⭐ Anise','🌸 Fennel','🌾 Oats','🟤 Dates','⬛ Sesame','🌿 Moringa','🫚 Olive Oil','🥜 Walnuts']).map(function(t){return '<span class="tag">'+t+'</span>';}).join('')}</div>
+  </div>`;
+}
+
+function renderDrinks(l) {
+  var ar = l==='ar';
+  var drinks = ar ? [
+    ['🍵','الشاي الأسود / الإنجليزي','2 كوب/يوم حد أقصى (~50 ملجم كافيين/كوب). اشربيه بين الرضعات لا قبلها مباشرةً. للمزيد اختاري منزوع الكافيين.'],
+    ['🌺','شاي الكركديه','الدراسات: يُخفّض ضغط الدم الانقباضي حتى 7 ملمتر. غني بمضادات الأكسدة. بدون كافيين. <strong>كوبان/يوم.</strong>'],
+    ['⭐','شاي اليانسون','مدرّ تقليدي للحليب. مهدئ ومحايد للضغط. <strong>1–2 كوب/يوم.</strong>'],
+    ['🌸','شاي الشمر','يدعم الحليب ويقلل مغص لينا. يُخفّض الضغط خفيفاً. <strong>1–2 كوب/يوم.</strong>'],
+    ['🌿','شاي المورينجا','غني بالحديد والكالسيوم والبوتاسيوم — يدعم الضغط وكمية الحليب. <strong>كوب/يوم.</strong>'],
+    ['🍵','شاي البابونج','مضاد للالتهاب ومهدئ، يساعد ريم على النوم بين رضعات لينا. <strong>كوب ليلاً.</strong>'],
+    ['🌾','حليب الشوفان','شوفان + ماء دافئ. البيتا-جلوكان يدعم البرولاكتين وله تأثير موثَّق في خفض الضغط. <strong>كوب/يوم.</strong>'],
+    ['🥛','لبن الكراوية','مشروب رضاعة تقليدي. غني بالكالسيوم، يدعم الضغط. <strong>كوب/يوم.</strong>'],
+    ['🥕','عصير الجزر والزنجبيل','غني بالبوتاسيوم (يدعم الضغط). بيتا كاروتين ← فيتامين أ في حليب لينا. <strong>كوب/يوم.</strong>'],
+    ['🍋','ماء الليمون والنعناع','ترطيب منعش. فيتامين ج يعزز امتصاص الحديد. <strong>2–3 أكواب/يوم.</strong>'],
+  ] : [
+    ['🍵','Black Tea (English Tea)','Max 2 cups/day (~50mg caffeine each). Drink between feeds, not right before — caffeine peaks in milk 30–60 min after. For more, choose decaf.'],
+    ['🌺','Hibiscus Tea (Karkade)','Studies show it lowers systolic BP by up to 7 mmHg. Antioxidant-rich. Caffeine-free. <strong>2 cups/day.</strong>'],
+    ['⭐','Anise Tea (Yansoon)','Classic lactation drink. Calming, mildly galactagogue, BP-neutral. <strong>1–2 cups/day.</strong>'],
+    ['🌸','Fennel Tea (Shamar)','Supports milk + reduces Lina\'s colic. Mildly BP-lowering. <strong>1–2 cups/day.</strong>'],
+    ['🌿','Moringa Tea','Rich in iron, calcium, potassium — supports BP and milk volume. <strong>1 cup/day.</strong>'],
+    ['🍵','Chamomile Tea','Anti-inflammatory, calming — helps Reem rest between Lina\'s frequent feeds. <strong>1 cup at night.</strong>'],
+    ['🌾','Oat Milk (Homemade)','Blend oats + warm water, strain. Beta-glucan supports prolactin and has proven BP-lowering effect. <strong>1 glass/day.</strong>'],
+    ['🥛','Caraway Milk (Karawya)','Traditional lactation drink. Calcium-rich, BP-supporting. <strong>1 cup/day.</strong>'],
+    ['🥕','Carrot & Ginger Juice','Potassium-rich (supports BP). Beta-carotene → Vit A in Lina\'s milk. <strong>1 glass/day.</strong>'],
+    ['🍋','Lemon & Mint Water','Refreshing hydration. Vit C enhances iron absorption. <strong>2–3 glasses/day.</strong>'],
+  ];
+  var avoid = ar
+    ? ['☕ قهوة — حد أقصى 1 كوب/يوم مع دواء الضغط','🧃 مشروبات غازية — ترفع الضغط','🍊 عصير جريب فروت — راجعي الطبيب','🌿 مريمية — تُقلّل الحليب','🌿 عرقسوس — يرفع الضغط','⚗️ خلطات عشبية مجهولة']
+    : ['☕ Coffee — max 1 cup/day with BP meds','🧃 Sodas & energy drinks — raise BP','🍊 Grapefruit juice — check with doctor','🌿 Sage tea — reduces milk supply','🌿 Liquorice root — raises BP','⚗️ Unknown herbal blends'];
+  return `
+  <h2 class="stitle-h">${ar?'🍵 الشاي والمشروبات':'🍵 Tea & Drinks Guide'}</h2>
+  <p class="ssub">${ar?'ريم تحب الشاي — هذا بالضبط كم ونوع ما يناسب وضعها كرياضية وأم جديدة وشخص يُدير ضغط الدم.':'Reem loves tea — here is exactly how much and which types suit her as an athlete, new mum, and someone managing blood pressure.'}</p>
+  <div class="card pk" style="margin-bottom:16px">
+    <div class="ct">${ar?'🍵 ملخص كميات الشاي اليومية لريم':'🍵 Reem\'s Daily Tea Summary'}</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div style="background:#fff5f8;border-radius:10px;padding:12px;border:1px solid var(--blush);text-align:center">
+        <div style="font-size:2.2rem;font-weight:700;color:var(--pink)">2</div>
+        <div style="font-weight:700;font-size:0.84rem;color:var(--deep)">${ar?'الشاي الأسود / الإنجليزي':'Black / English Tea'}</div>
+        <div style="font-size:0.73rem;color:var(--muted)">${ar?'كوبان كحد أقصى يومياً (~50 ملجم كافيين/كوب)':'cups/day max · ~50mg caffeine each'}</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:5px">${ar?'اشربيه بين الرضعات. للمزيد: اختاري منزوع الكافيين — نفس المذاق، صفر تأثير.':'Drink between feeds. Want more? Choose decaf — same taste, zero impact.'}</div>
+      </div>
+      <div style="background:#fff5f8;border-radius:10px;padding:12px;border:1px solid var(--blush);text-align:center">
+        <div style="font-size:2.2rem;font-weight:700;color:var(--pink)">3–4</div>
+        <div style="font-weight:700;font-size:0.84rem;color:var(--deep)">${ar?'الشاي العشبي':'Herbal Teas'}</div>
+        <div style="font-size:0.73rem;color:var(--muted)">${ar?'أكواب إضافية يومياً — بدون كافيين':'additional cups/day — caffeine-free'}</div>
+        <div style="font-size:0.72rem;color:var(--muted);margin-top:5px">${ar?'كركديه، يانسون، شمر، بابونج، مورينجا — كلها تدعم الحليب أو الضغط.':'Karkade, anise, fennel, chamomile, moringa — all support milk or BP.'}</div>
+      </div>
+    </div>
+    <div style="background:#fff0f5;border-radius:9px;padding:9px 12px;margin-top:10px;font-size:0.79rem;color:var(--muted)">${ar?'💡 <strong style="color:var(--deep)">الإجمالي: 5–6 أكواب يومياً</strong> — 2 شاي عادي + 3–4 شاي عشبي. مع كل كوب: كوب ماء إضافي.':'💡 <strong style="color:var(--deep)">Total: 5–6 cups/day</strong> — 2 regular teas + 3–4 herbal. Match every cup with an extra glass of water.'}</div>
+  </div>
+  <div class="dgrid">${drinks.map(d=>`<div class="dc"><div class="di">${d[0]}</div><div class="dn">${d[1]}</div><div class="dd">${d[2]}</div></div>`).join('')}</div>
+  <div class="card red" style="margin-top:14px">
+    <div class="ct" style="color:#c0392b">${ar?'🚫 مشروبات يجب تجنبها':'🚫 Drinks to Avoid'}</div>
+    <div>${avoid.map(a=>`<span class="tag" style="background:#fff0f0;border-color:#ffc0c0;color:#c0392b">${a}</span>`).join('')}</div>
+  </div>`;
+}
+
+function renderPlan(l) {
+  var ar = l==='ar';
+  return `
+  <h2 class="stitle-h">${ar?'خطة الوجبات لـ ٧ أيام':'7-Day Meal Plan'}</h2>
+  <p class="ssub">${ar?'~١٨٠٠–٢٠٠٠ سعر يومياً · منخفضة الصوديوم · متوافقة مع DASH · كل وجبة تغذّي لينا أيضاً':'~1,800–2,000 kcal/day · Low-sodium · DASH-aligned · Every meal nourishes Lina too'}</p>
+  <div class="day-sel" id="day-sel"></div>
+  <div id="meal-timeline"></div>`;
+}
+
+function renderFeeding(l) {
+  var ar = l==='ar';
+  var steps = ar ? [
+    ['استجيبي لإشارات جوع لينا المبكرة','رد فعل التجذّر (تحريك الرأس)، تحريك الشفاه، الإصبع في الفم. إرضاع طفلة هادئة أسهل وأكثر فاعلية.'],
+    ['دعي لينا تُفرغ ثدياً واحداً قبل التبديل','الحليب الخلفي أغنى بالدهون — ضروري لزيادة وزن لينا ونمو مخها. لا تتسرّعي للثدي الثاني.'],
+    ['وضع الرضاعة الصحيح — الهالة بالكامل وليس الحلمة فقط','ذقن لينا تلمس الثدي وشفتيها منقلبتان. الوضع الصحيح = لا ألم لريم + نقل حليب فعّال للينا.'],
+    ['لماذا ترضع لينا كل 1–2 ساعة؟','هذا طبيعي تماماً عند 14 يوماً! معدة لينا تتسع فقط 30–60 مل. الحليب يُهضم في 60–90 دقيقة. إنها في مرحلة نمو — هكذا تطلب المزيد من الحليب.'],
+    ['علامات أن لينا ترضع جيداً','✅ 6 حفاضات مبللة أو أكثر بعد اليوم الخامس · ✅ عودة لوزن الميلاد بحلول اليوم 10–14 · ✅ تسمعين أصوات البلع · ✅ مرتاحة بعد الرضعة.'],
+    ['رعاية ريم نفسها بين الرضعات','في كل مرة تنام لينا: ريم تأكل شيئاً مغذياً، تشرب كوباً كبيراً من الماء، وترتاح. الرياضية تفهم أهمية التعافي.'],
+  ] : [
+    ['Respond to Lina\'s early hunger cues','Rooting (turning head), lip smacking, hand to mouth. Feeding a calm baby is easier. Crying is a late cue.'],
+    ['Let Lina empty one breast fully before switching','Hindmilk is richer in fat — crucial for Lina\'s weight gain and brain development. Don\'t rush to the second side.'],
+    ['Correct feeding position — whole areola, not just nipple','Lina\'s chin touches breast, lips flanged outward. Correct position = no pain for Reem + effective milk transfer for Lina.'],
+    ['Why does Lina feed every 1–2 hours?','Completely normal at 14 days! Her stomach holds only 30–60ml. Milk digests in 60–90 min. She is in a growth phase — this is how she requests more milk.'],
+    ['Signs Lina is feeding well','✅ 6+ wet nappies/day after day 5 · ✅ Back to birth weight by day 10–14 · ✅ Swallowing sounds heard · ✅ Satisfied and relaxed after feeds.'],
+    ['Reem\'s self-care between Lina\'s feeds','Every time Lina sleeps: Reem eats something nutritious, drinks a large glass of water, and rests. As an athlete, Reem understands recovery — her postpartum recovery deserves the same discipline.'],
+  ];
+  return `
+  <h2 class="stitle-h">${ar?'👶🎀 إرضاع لينا — عمرها ١٤ يوماً':'👶🎀 Feeding Baby Lina — 14 Days Old'}</h2>
+  <p class="ssub">${ar?'لينا عمرها 14 يوماً وترضع كل 1–2 ساعة — هذا طبيعي تماماً وعلامة رائعة على رضاعة ممتازة.':'Lina is 14 days old and feeds every 1–2 hours — completely normal and a wonderful sign.'}</p>
+  <div class="card nv">
+    <div class="ct">${ar?'🕐 التواتر والوضع والعلامات':'🕐 Frequency, Position & Signs'}</div>
+    ${steps.map((s,i)=>`<div class="fstep"><div class="snum">${i+1}</div><div><div class="stitle">${s[0]}</div><div class="sbody">${s[1]}</div></div></div>`).join('')}
+  </div>`;
+}
+
+function renderSupps(l) {
+  var ar = l==='ar';
+  var supps = ar ? [
+    ['🌸','فيتامينات ما بعد الولادة','موصى بها طوال فترة الرضاعة — تغطي النقص اليومي خاصةً في أيام الإرهاق. استمري 6 أشهر على الأقل.','ok','موصى به'],
+    ['☀️','فيتامين د3 — 1000–2000 وحدة/يوم','الانتقال من لندن (شمس منخفضة) إلى مصر. مستوى ريم قد يكون منخفضاً. يدعم نمو عظام لينا عبر الحليب.','ok','محتمل الحاجة — لندن'],
+    ['🐟','أوميجا 3 / DHA — 200–300 ملجم/يوم','ضروري لنمو مخ لينا. مضاد للالتهاب — يدعم التحكم في ضغط الدم. إذا كان السمك أقل من 2–3×/أسبوع.','ok','موصى به بشدة'],
+    ['🦴','الكالسيوم — 1000 ملجم/يوم','تاريخ تسمم الحمل يجعل مكمل الكالسيوم مهماً. الرضاعة أيضاً تسحب الكالسيوم من عظام ريم.','ok','مهم لريم'],
+    ['🌿','المغنيسيوم — 310–360 ملجم/يوم','نقص المغنيسيوم مرتبط بارتفاع الضغط. يدعم تعافي العضلات للرياضية. استشيري طبيبها.','ca','استشيري الطبيب'],
+    ['🩸','الحديد','فقدان دم ما بعد الولادة مع الرضاعة المتكررة. تحققي من الهيموجلوبين.','ca','تحققي من الهيموجلوبين'],
+  ] : [
+    ['🌸','Postnatal Multivitamin','Continue for 6 months. Covers daily gaps especially on exhausting days with Lina\'s frequent feeds.','ok','Recommended'],
+    ['☀️','Vitamin D3 — 1,000–2,000 IU/day','Moving from London (low sun) to Egypt. Levels may be low. Supports Lina\'s bone development via milk.','ok','Likely needed (London)'],
+    ['🐟','Omega-3 / DHA — 200–300 mg/day','Critical for Lina\'s brain development. Anti-inflammatory — supports BP control. If fish < 2–3×/week.','ok','Strongly recommended'],
+    ['🦴','Calcium — 1,000 mg/day','Pre-eclampsia history makes calcium supplementation important. Breastfeeding also draws calcium from Reem\'s bones.','ok','Important for Reem'],
+    ['🌿','Magnesium — 310–360 mg/day','Low magnesium is associated with hypertension. Supports muscle recovery for the athlete. Discuss with physician.','ca','Discuss with physician'],
+    ['🩸','Iron','Post-delivery blood loss + frequent feeding may deplete iron. Check haemoglobin levels.','ca','Check haemoglobin'],
+  ];
+  var herbs = ar ? [
+    ['كركديه','يُخفّض ضغط الدم فعلياً. آمن أثناء الرضاعة.','ok'],
+    ['يانسون','يدعم الحليب. مهدئ. محايد للضغط.','ok'],
+    ['شمر','يدعم الحليب ويقلل مغص لينا.','ok'],
+    ['مورينجا','يدعم الحليب. غني بالبوتاسيوم.','ok'],
+    ['مريمية','تُقلّل الحليب بشكل ملحوظ.','no'],
+    ['عرقسوس','يرفع ضغط الدم. ممنوع مع أدوية الضغط.','no'],
+  ] : [
+    ['Hibiscus','Actively BP-lowering. Safe during breastfeeding.','ok'],
+    ['Anise','Lactation support. Calming. BP-neutral.','ok'],
+    ['Fennel','Supports milk + reduces Lina\'s colic.','ok'],
+    ['Moringa','Lactation support. High in potassium.','ok'],
+    ['Sage','Significantly reduces milk supply.','no'],
+    ['Liquorice root','Raises blood pressure. Contraindicated with BP meds.','no'],
+  ];
+  return `
+  <h2 class="stitle-h">${ar?'💊 دليل المكملات لريم':'💊 Supplements Guide for Reem'}</h2>
+  <p class="ssub">${ar?'احتياجات ريم أعلى بسبب خلفيتها الرياضية وتاريخ تسمم الحمل وجدول رضاعة لينا المكثف.':'Reem\'s needs are higher due to her athletic background, pre-eclampsia history, and Lina\'s demanding feeding schedule.'}</p>
+  <div class="sgrid">${supps.map(s=>`<div class="sc"><div class="sci">${s[0]}</div><div class="scn">${s[1]}</div><div class="scd">${s[2]}</div><span class="sv ${s[3]}">${s[4]}</span></div>`).join('')}</div>
+  <div class="card gold" style="margin-top:16px">
+    <div class="ct">${ar?'🌿 المكملات العشبية — دليل السلامة':'🌿 Herbal Supplements — Safety Guide'}</div>
+    <table class="htab"><tr><th>${ar?'العشبة':'Herb'}</th><th>${ar?'الاستخدام':'Use'}</th><th>${ar?'الحكم':'Verdict'}</th></tr>
+    ${herbs.map(h=>`<tr><td><strong>${h[0]}</strong></td><td>${h[1]}</td><td><span class="badge ${h[2]==='ok'?'ok':'no'}">${h[2]==='ok'?'✅ Safe':'⛔ Avoid'}</span></td></tr>`).join('')}
+    </table>
+  </div>`;
+}
+
+function renderAvoid(l) {
+  var ar = l==='ar';
+  var items = ar ? [
+    ['🧂','الملح المضاف والأطعمة المالحة'],['🥒','المخلل — صوديوم عالٍ جداً'],
+    ['🍊','الجريب فروت — راجعي دواء الضغط'],['☕','الكافيين — حد أقصى 200 ملجم/يوم'],
+    ['🧃','مشروبات غازية وطاقة'],['🌿','مريمية وعرقسوس'],
+    ['🍟','الأطعمة المعالجة والمقلية'],['🏋️','رياضة مكثفة — انتظري 6–8 أسابيع'],
+  ] : [
+    ['🧂','Added salt & high-sodium foods'],['🥒','Pickles (torshi) — very high sodium'],
+    ['🍊','Grapefruit — check BP meds first'],['☕','Caffeine — max 200mg/day total'],
+    ['🧃','Soft drinks & energy drinks'],['🌿','Sage & liquorice root teas'],
+    ['🍟','Processed & deep-fried foods'],['🏋️','Intense exercise — wait 6–8 weeks'],
+  ];
+  return `
+  <h2 class="stitle-h">${ar?'ما يجب تجنّبه أو تقليله':'What to Avoid or Limit'}</h2>
+  <p class="ssub">${ar?'لريم: اعتبارات الرضاعة الطبيعية وإدارة ضغط الدم معاً.':'For Reem: both breastfeeding and blood pressure management.'}</p>
+  <div class="card red">
+    <div class="ct" style="color:#c0392b">${ar?'🚫 قائمة تجنّب ريم':'🚫 Reem\'s Avoid List'}</div>
+    <div class="agrid">${items.map(i=>`<div class="ai"><span style="font-size:20px;display:block;margin-bottom:4px">${i[0]}</span>${i[1]}</div>`).join('')}</div>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:12px;line-height:1.7">${ar?'🏋️ <strong>للرياضية:</strong> يجب على ريم تجنّب العودة للتدريب المكثف حتى 6–8 أسابيع وبعد استقرار الضغط كاملاً. المشي الخفيف ممتاز من اليوم الأول.':'🏋️ <strong>For the athlete:</strong> Reem should avoid intense training until 6–8 weeks postpartum and only after BP is fully stabilised. Light walking is excellent from day one.'}</p>
+  </div>
+  <div class="card gold">
+    <div class="ct">${ar?'⚠️ راقبي ردة فعل لينا':'⚠️ Watch Lina\'s Reaction'}</div>
+    <p style="font-size:0.84rem;line-height:1.8;color:var(--muted)">${ar?'إذا بدا أن لينا تعاني من غازات أو تقلصات بعد أطعمة معينة، جربي حذف ذلك الطعام 2–3 أسابيع. الأكثر شيوعاً: منتجات الألبان، الموالح، المكسرات، الصويا.':'If Lina seems gassy or colicky after certain foods, eliminate that food for 2–3 weeks. Common culprits: dairy, citrus, nuts, soy. Keep a simple food diary.'}</p>
+  </div>`;
+}
+
+// ─── RENDER ENGINE ──────────────────────────────────────────────────────────
+var RENDERERS = {needs:renderNeeds, bp:renderBP, foods:renderFoods, drinks:renderDrinks, plan:renderPlan, feeding:renderFeeding, supps:renderSupps, avoid:renderAvoid};
+
+function buildPage() {
+  var l = currentLang;
+  var ar = l==='ar';
+  var C = CONTENT[l];
+  var tabs = C.tabs.map(function(t,i){
+    var active = i===C.tabIds.indexOf(currentTab)?' on':'';
+    return '<button class="tab-btn'+active+'" data-tabid="'+C.tabIds[i]+'">'+t+'</button>';
+  }).join('');
+  var secHtml = C.tabIds.map(function(id){
+    var active = id===currentTab?' on':'';
+    return '<div class="sec'+active+'" id="sec-'+id+'">'+RENDERERS[id](l)+'</div>';
+  }).join('');
+  document.getElementById('app').innerHTML = `
+    <div class="hero">
+      <div class="hero-icon">🤱</div>
+      <div class="hero-title">${C.heroTitle}</div>
+      <div class="hero-sub">${C.heroSub}</div>
+    </div>
+    <div class="tab-bar">${tabs}</div>
+    <div class="${ar?'ar':''}" style="min-height:400px">${secHtml}</div>
+    <footer>${C.footer}</footer>`;
+  // attach tab click handlers
+  document.querySelectorAll('.tab-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){showTab(this.getAttribute('data-tabid'));});
+  });
+  // re-init plan if active
+  if(currentTab==='plan') initPlan();
+}
+
+function showTab(id) {
+  currentTab = id;
+  buildPage();
+  window.scrollTo(0,0);
+}
+
+function switchLang(l) {
+  currentLang = l;
+  document.getElementById('btn-en').classList.toggle('on', l==='en');
+  document.getElementById('btn-ar').classList.toggle('on', l==='ar');
+  buildPage();
+}
+
+// ─── MEAL PLAN ──────────────────────────────────────────────────────────────
+function initPlan() {
+  var ar = currentLang==='ar';
+  var selEl = document.getElementById('day-sel');
+  var tlEl = document.getElementById('meal-timeline');
+  if(!selEl||!tlEl) return;
+  selEl.innerHTML = mealPlans.map(function(d,i){
+    var parts = d.day.split(' / ');
+    var label = ar?(parts[1]||parts[0]):parts[0];
+    var cls = 'dbtn'+(i===currentDay?' on':'');
+    return '<button class="'+cls+'" onclick="selectDay('+i+')">'+label+'</button>';
+  }).join('');
+  renderMeals();
+}
+
+function selectDay(i) {
+  currentDay = i;
+  document.querySelectorAll('.dbtn').forEach((b,j)=>b.classList.toggle('on',j===i));
+  renderMeals();
+}
+
+function renderMeals() {
+  var ar = currentLang==='ar';
+  var plan = mealPlans[currentDay];
+  var tlEl = document.getElementById('meal-timeline');
+  if(!tlEl) return;
+  tlEl.innerHTML = plan.meals.map(function(m,mi){
+    var nameParts = m.name.split(' / ');
+    var typeParts = m.type.split('/');
+    var name = ar?(nameParts[1]||nameParts[0]):nameParts[0];
+    var type = ar?(typeParts[1]?typeParts[1].trim():typeParts[0]):typeParts[0].trim();
+    var rows = m.rows.map(function(r){return '<div class="mrow"><span>'+r[0]+'</span><span class="iqty">'+r[1]+'</span></div>';}).join('');
+    return '<div class="mblock"><div class="mtc"><div class="mtime">'+m.time+'</div><div class="mtype">'+type+'</div></div><div class="mdot"></div><div class="mc"><div class="mn">🍽️ '+name+'</div><div class="mrows">'+rows+'</div><span class="mcal">'+exactCals[currentDay][mi]+' kcal</span></div></div>';
+  }).join('');
+  var total = exactCals[currentDay].reduce((a,b)=>a+b,0);
+  var totalLabel = ar ? ('📊 مجموع اليوم: '+total+' سعر | الهدف: ١٨٠٠–٢٠٠٠ سعر · صوديوم منخفض') : ('📊 Daily Total: '+total+' kcal | Target: 1,800–2,000 kcal · Low-sodium DASH');
+  tlEl.innerHTML += '<div style="margin-top:10px;padding:10px 14px;background:linear-gradient(135deg,var(--deep),var(--pink));color:#fff;border-radius:10px;font-weight:700;font-size:0.88rem">'+totalLabel+'</div>';
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+buildPage();
+</script>
+</body>
+</html>
