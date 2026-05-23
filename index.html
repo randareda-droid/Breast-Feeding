@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yasmine & Sherif — Postpartum Nutrition Plan</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Tajawal:wght@300;400;700&display=swap');
+  :root{--cream:#f0f7ff;--warm:#dceeff;--accent:#4fa8e0;--blue:#2a7abf;--navy:#0d2d52;--green:#3a8c6a;--gold:#c89a30;--text:#0d2040;--muted:#4a6080}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Lato',sans-serif;background:var(--cream);color:var(--text)}
+
+  /* BILINGUAL — only mechanism needed */
+  .L-ar{display:none}
+  body.arabic .L-ar{display:block}
+  body.arabic .L-en{display:none}
+  /* Inline contexts */
+  body.arabic span.L-ar{display:inline}
+  body.arabic span.L-en{display:none}
+  span.L-ar{display:none}
+  body.arabic{direction:rtl;font-family:'Tajawal',sans-serif}
+  body.arabic .card{border-left:none;border-right:4px solid var(--accent)}
+  body.arabic .card.green{border-right-color:var(--green)}
+  body.arabic .card.gold{border-right-color:var(--gold)}
+  body.arabic .card.navy{border-right-color:var(--navy)}
+  body.arabic .card.red{border-right-color:#c0392b}
+  body.arabic .meal-time-col{text-align:left}
+  body.arabic .meal-dot::after{right:5px;left:auto}
+  body.arabic .tabs{direction:rtl}
+  body.arabic .sherif-banner{flex-direction:row-reverse}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0d2d52 0%,#1a5a9a 55%,#2a7abf 100%);padding:48px 32px 40px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(255,255,255,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(160,210,255,.15) 0%,transparent 50%)}
+  .hero-icon{font-size:52px;margin-bottom:12px;position:relative}
+  .hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;position:relative;line-height:1.3}
+  body.arabic .hero h1{font-family:'Tajawal',sans-serif;font-size:1.9rem}
+  .hero p{color:rgba(255,255,255,.85);font-size:1rem;margin-top:8px;font-weight:300;position:relative}
+  .hero-badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);color:#fff;padding:4px 16px;border-radius:20px;font-size:0.8rem;margin-top:14px;position:relative;letter-spacing:1px;text-transform:uppercase}
+
+  /* TABS */
+  .lang-wrap{display:flex;justify-content:center;background:#fff;padding:10px;border-bottom:1px solid #c8dff0;gap:8px}
+  .lang-btn{padding:6px 20px;border-radius:20px;border:2px solid #b0d0e8;background:#fff;cursor:pointer;font-weight:700;font-size:0.82rem;color:var(--muted);transition:all .2s}
+  .lang-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .tabs{display:flex;background:#fff;border-bottom:2px solid #c8dff0;overflow-x:auto;scrollbar-width:none;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(26,74,122,.1)}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:1;min-width:85px;padding:12px 7px;text-align:center;cursor:pointer;font-size:0.68rem;font-weight:700;text-transform:uppercase;color:var(--muted);border-bottom:3px solid transparent;transition:all .25s;white-space:nowrap}
+  .tab:hover{color:var(--blue)}
+  .tab.active{color:var(--navy);border-bottom-color:var(--navy)}
+
+  /* SECTIONS */
+  .section{display:none;padding:28px 20px;max-width:920px;margin:0 auto}
+  .section.active{display:block}
+
+  /* CARDS */
+  .card{background:#fff;border-radius:16px;padding:22px;margin-bottom:18px;box-shadow:0 2px 16px rgba(26,74,122,.08);border-left:4px solid var(--accent)}
+  .card.green{border-left-color:var(--green)}
+  .card.gold{border-left-color:var(--gold)}
+  .card.navy{border-left-color:var(--navy)}
+  .card.red{border-left-color:#c0392b}
+  .card-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  body.arabic .card-title{font-family:'Tajawal',sans-serif}
+
+  /* NUTRIENTS */
+  .nutrient-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:14px;margin-bottom:18px}
+  .nutrient-box{background:linear-gradient(135deg,#eef6ff,#dceeff);border-radius:12px;padding:16px;text-align:center;border:1px solid #b8d8f0}
+  .nutrient-box .icon{font-size:28px;margin-bottom:6px}
+  .nutrient-box .label{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .nutrient-box .value{font-size:1.3rem;font-weight:700;color:var(--navy)}
+  .nutrient-box .unit{font-size:0.78rem;color:var(--muted)}
+
+  /* FOOD GRID */
+  .food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px}
+  .food-item{background:var(--warm);border-radius:12px;padding:14px 12px;text-align:center;border:1px solid #b8d4ec}
+  .fi-icon{font-size:24px;margin-bottom:5px}
+  .fi-name{font-size:0.82rem;font-weight:700;color:var(--text)}
+  .fi-why{font-size:0.7rem;color:var(--muted);margin-top:3px}
+  .fi-portion{font-size:0.68rem;color:var(--blue);margin-top:4px;font-weight:700;background:#eef6ff;border-radius:6px;padding:2px 4px;display:inline-block}
+
+  /* DRINKS */
+  .drink-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+  .drink-card{background:linear-gradient(135deg,#f0f8ff,#e0effd);border-radius:14px;padding:18px;border:1px solid #b0d0f0;text-align:center}
+  .dk-icon{font-size:32px;margin-bottom:8px}
+  .dk-name{font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:4px}
+  .dk-desc{font-size:0.75rem;color:var(--muted);line-height:1.5}
+
+  /* DAY PLAN */
+  .day-selector{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .day-btn{padding:8px 16px;border:2px solid #b8d4ec;border-radius:20px;background:#fff;cursor:pointer;font-size:0.82rem;font-weight:700;color:var(--muted);transition:all .2s}
+  .day-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .meal-block{display:flex;gap:14px;margin-bottom:14px}
+  .meal-time-col{min-width:72px;text-align:right}
+  .meal-time{font-size:0.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px}
+  .meal-type{font-size:0.65rem;color:var(--muted)}
+  .meal-dot{width:12px;height:12px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:3px;position:relative;z-index:1}
+  .meal-dot::after{content:'';position:absolute;left:5px;top:12px;width:2px;height:calc(100% + 14px);background:#b8d4ec}
+  .meal-block:last-child .meal-dot::after{display:none}
+  .meal-content{flex:1;background:#fff;border-radius:12px;padding:14px 16px;box-shadow:0 2px 8px rgba(26,74,122,.07)}
+  .meal-name{font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:6px}
+  .meal-rows{font-size:0.82rem;color:var(--muted)}
+  .meal-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0;border-bottom:1px dashed #e4f0f8}
+  .meal-row:last-child{border-bottom:none}
+  .item-name{flex:1;color:var(--text)}
+  .item-qty{color:var(--blue);font-weight:700;font-size:0.78rem;white-space:nowrap;margin-left:8px}
+  .meal-cal{display:inline-block;background:var(--warm);color:var(--navy);font-size:0.7rem;font-weight:700;padding:3px 12px;border-radius:10px;margin-top:8px}
+
+  /* MISC */
+  .tip-list{list-style:none}
+  .tip-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid #d8eaf8;font-size:0.88rem;line-height:1.6}
+  .tip-list li:last-child{border-bottom:none}
+  .tip-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+  .avoid-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .avoid-item{background:#fff5f5;border:1px solid #ffd0d0;border-radius:10px;padding:12px;text-align:center;font-size:0.8rem;color:#c0392b;font-weight:700}
+  .honey-myth{background:linear-gradient(135deg,#fffbea,#fff3c4);border-radius:16px;padding:24px;border:2px solid #f0c040;margin-bottom:18px}
+  .myth-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:520px){.myth-row{grid-template-columns:1fr}}
+  .myth-box{border-radius:12px;padding:16px}
+  .myth-box.wrong{background:#fff0f0;border:1px solid #ffb0b0}
+  .myth-box.right{background:#f0fff5;border:1px solid #80d0a0}
+  .mb-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+  .myth-box.wrong .mb-label{color:#c0392b}
+  .myth-box.right .mb-label{color:var(--green)}
+  .myth-box p{font-size:0.83rem;line-height:1.6;color:var(--text)}
+  .supp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px}
+  .supp-card{background:#fff;border-radius:14px;padding:18px;border:1px solid #b8d4ec;box-shadow:0 2px 8px rgba(26,74,122,.06)}
+  .sc-icon{font-size:28px;margin-bottom:8px}
+  .sc-name{font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:4px}
+  .sc-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;margin-bottom:8px}
+  .sc-verdict{display:inline-block;font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:10px}
+  .sc-verdict.safe{background:#e8f8ee;color:#2a7a4a;border:1px solid #a0d8b0}
+  .sc-verdict.caution{background:#fff3e0;color:#8a5000;border:1px solid #f0c070}
+  .sc-verdict.deny{background:#fff0f0;color:#c02020;border:1px solid #f0a0a0}
+  .herb-table{width:100%;border-collapse:collapse;font-size:0.81rem;margin-top:10px}
+  .herb-table th{background:linear-gradient(90deg,var(--navy),var(--blue));color:#fff;padding:10px 12px;text-align:left;font-weight:700}
+  .herb-table td{padding:10px 12px;border-bottom:1px solid #d8eaf8;vertical-align:top;line-height:1.5}
+  .herb-table tr:nth-child(even) td{background:#f4f9ff}
+  .badge{display:inline-block;font-size:0.68rem;font-weight:700;padding:2px 9px;border-radius:10px}
+  .badge.go{background:#e0f5ea;color:#1a7a40;border:1px solid #90d0b0}
+  .badge.limit{background:#fff5d8;color:#8a5500;border:1px solid #d8b040}
+  .badge.stop{background:#ffe8e8;color:#b02020;border:1px solid #e08080}
+  .feeding-step{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+  .step-num{width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .step-content{flex:1}
+  .step-title{font-size:0.92rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .step-body{font-size:0.82rem;color:var(--muted);line-height:1.6}
+  .water-bar-wrap{margin:12px 0}
+  .water-label{display:flex;justify-content:space-between;font-size:0.82rem;margin-bottom:6px}
+  .water-track{height:18px;background:#d0e8f8;border-radius:20px;overflow:hidden}
+  .water-fill{height:100%;background:linear-gradient(90deg,#2a7abf,#60b0e0);border-radius:20px;width:85%}
+  .section-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--navy);margin-bottom:6px}
+  body.arabic .section-title{font-family:'Tajawal',sans-serif}
+  .section-sub{color:var(--muted);font-size:0.88rem;margin-bottom:22px}
+  .tag{display:inline-block;background:var(--warm);color:var(--navy);font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:10px;margin:2px;border:1px solid #b0d0ec}
+  .cal-summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  .cal-box{flex:1;min-width:110px;background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:12px;padding:14px;text-align:center;color:#fff}
+  .cal-box .cb-val{font-size:1.4rem;font-weight:700}
+  .cal-box .cb-lbl{font-size:0.7rem;opacity:.85;text-transform:uppercase;letter-spacing:1px}
+  .sherif-banner{background:linear-gradient(135deg,#dceeff,#c8e0f8);border-radius:14px;padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:14px;border:1px solid #a0c8e8}
+  .sb-icon{font-size:40px}
+  .sb-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .sb-sub{font-size:0.82rem;color:var(--blue)}
+  footer{text-align:center;padding:24px;font-size:0.75rem;color:var(--muted);border-top:1px solid #c8dff0}
+</style>
+</head>
+<body class="en">
+
+<div class="lang-wrap">
+  <button class="lang-btn active" onclick="setLang('en')">🇬🇧 English</button>
+  <button class="lang-btn" onclick="setLang('ar')">🇪🇬 عربي</button>
+</div>
+
+<div class="hero">
+  <div class="hero-icon">🤱</div>
+  <h1 class="L-en">Yasmine's Postpartum Nutrition Plan</h1>
+  <h1 class="L-ar" style="font-family:'Tajawal',sans-serif">خطة تغذية ياسمين بعد الولادة</h1>
+  <p class="L-en">Breastfeeding Guide · For Baby Boy Sherif 👶🏻</p>
+  <p class="L-ar" style="font-family:'Tajawal',sans-serif">دليل الرضاعة الطبيعية · لطفلها شريف 👶🏻</p>
+  <span class="hero-badge L-en">By Prof. Randa Reda</span>
+  <span class="hero-badge L-ar" style="font-family:'Tajawal',sans-serif;display:none">إعداد: أ.د. رندة رضا</span>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showSection('needs',this)">
+    <span class="L-en">🥗 Needs</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">🥗 الاحتياجات</span>
+  </div>
+  <div class="tab" onclick="showSection('foods',this)">
+    <span class="L-en">🍎 Foods</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">🍎 الأطعمة</span>
+  </div>
+  <div class="tab" onclick="showSection('drinks',this)">
+    <span class="L-en">🥛 Drinks</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">🥛 المشروبات</span>
+  </div>
+  <div class="tab" onclick="showSection('plan',this)">
+    <span class="L-en">📅 7 Days</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">📅 ٧ أيام</span>
+  </div>
+  <div class="tab" onclick="showSection('feeding',this)">
+    <span class="L-en">👶 Feeding</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">👶 الرضاعة</span>
+  </div>
+  <div class="tab" onclick="showSection('honey',this)">
+    <span class="L-en">🍯 Honey</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">🍯 العسل</span>
+  </div>
+  <div class="tab" onclick="showSection('supps',this)">
+    <span class="L-en">💊 Supps</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">💊 مكملات</span>
+  </div>
+  <div class="tab" onclick="showSection('avoid',this)">
+    <span class="L-en">⚠️ Avoid</span><span class="L-ar" style="font-family:'Tajawal',sans-serif;display:none">⚠️ تجنبي</span>
+  </div>
+</div>
+
+<!-- NEEDS -->
+<div class="section active" id="needs">
+  <div class="sherif-banner">
+    <div class="sb-icon">👶🏻</div>
+    <div>
+      <div class="sb-title L-en">Nourishing yourself = Nourishing Sherif</div>
+      <div class="sb-title L-ar" style="font-family:'Tajawal',sans-serif">تغذيتك = تغذية شريف</div>
+      <div class="sb-sub L-en">Every nutrient Yasmine eats transfers to Sherif through her milk.</div>
+      <div class="sb-sub L-ar" style="font-family:'Tajawal',sans-serif">كل عنصر غذائي تتناوله ياسمين ينتقل إلى شريف عبر حليبها.</div>
+    </div>
+  </div>
+
+  <h2 class="section-title L-en">Nutritional Requirements</h2>
+  <h2 class="section-title L-ar">الاحتياجات الغذائية</h2>
+  <p class="section-sub L-en">Breastfeeding raises daily caloric and nutrient needs to support milk production and recovery.</p>
+  <p class="section-sub L-ar">الرضاعة الطبيعية ترفع الاحتياج اليومي من السعرات والعناصر الغذائية لإنتاج الحليب والتعافي.</p>
+
+  <!-- Energy statement -->
+  <div class="card" style="background:linear-gradient(135deg,#f0f7ff,#e4f0fc);border-left-color:var(--navy)">
+    <div class="card-title L-en">⚡ Understanding Yasmine's Calorie Needs</div>
+    <div class="card-title L-ar">⚡ فهم احتياجات ياسمين من السعرات</div>
+    <p style="font-size:0.88rem;line-height:2;color:var(--text)" class="L-en">
+      Most breastfeeding mums need about <strong style="color:var(--navy)">2,100–2,400 kcal/day</strong> to maintain their weight and milk supply.<br>
+      This plan uses about <strong style="color:var(--green)">1,800–2,000 kcal/day</strong> to allow slow, healthy weight loss while keeping Sherif's milk safe.<br>
+      <span style="color:#b03020;font-weight:700">⚠️ Never go below 1,700–1,800 kcal/day and avoid sudden crash diets</span> — this can reduce milk supply and deprive Sherif of the nutrients he needs.
+    </p>
+    <p style="font-size:0.88rem;line-height:2;color:var(--text);font-family:'Tajawal',sans-serif" class="L-ar">
+      معظم الأمهات المرضعات يحتجن حوالي <strong style="color:var(--navy)">٢١٠٠–٢٤٠٠ سعر حراري يومياً</strong> للمحافظة على الوزن وإنتاج الحليب.<br>
+      هذه الخطة تستخدم حوالي <strong style="color:var(--green)">١٨٠٠–٢٠٠٠ سعر حراري يومياً</strong> لتقليل الوزن تدريجياً مع الحفاظ على حليب شريف.<br>
+      <span style="color:#b03020;font-weight:700">⚠️ تجنّبي النزول عن ١٧٠٠–١٨٠٠ سعر يومياً أو اتباع حمية قاسية ومفاجئة</span> — هذا قد يُقلّل إنتاج الحليب ويحرم شريف من العناصر التي يحتاجها.
+    </p>
+  </div>
+
+  <div class="cal-summary">
+    <div class="cal-box"><div class="cb-val">1,800–2,000</div><div class="cb-lbl L-en">kcal/day · weight loss</div><div class="cb-lbl L-ar" style="font-family:'Tajawal',sans-serif">سعر/يوم · تخسيس آمن</div></div>
+    <div class="cal-box"><div class="cb-val">71g</div><div class="cb-lbl L-en">protein/day</div><div class="cb-lbl L-ar" style="font-family:'Tajawal',sans-serif">بروتين / يوم</div></div>
+    <div class="cal-box"><div class="cb-val">3–4 L</div><div class="cb-lbl L-en">fluids/day</div><div class="cb-lbl L-ar" style="font-family:'Tajawal',sans-serif">سوائل / يوم</div></div>
+    <div class="cal-box"><div class="cb-val">1,000mg</div><div class="cb-lbl L-en">calcium/day</div><div class="cb-lbl L-ar" style="font-family:'Tajawal',sans-serif">كالسيوم / يوم</div></div>
+  </div>
+
+  <div class="nutrient-grid">
+    <div class="nutrient-box"><div class="icon">🦴</div><div class="label L-en">Calcium</div><div class="label L-ar">كالسيوم</div><div class="value">1,000</div><div class="unit">mg/day</div></div>
+    <div class="nutrient-box"><div class="icon">🩸</div><div class="label L-en">Iron</div><div class="label L-ar">حديد</div><div class="value">9</div><div class="unit">mg/day</div></div>
+    <div class="nutrient-box"><div class="icon">🐟</div><div class="label L-en">Omega-3 DHA</div><div class="label L-ar">أوميجا 3</div><div class="value">200</div><div class="unit">mg/day</div></div>
+    <div class="nutrient-box"><div class="icon">☀️</div><div class="label L-en">Vitamin D</div><div class="label L-ar">فيتامين د</div><div class="value">600</div><div class="unit">IU/day</div></div>
+    <div class="nutrient-box"><div class="icon">🟡</div><div class="label L-en">Folate</div><div class="label L-ar">فولات</div><div class="value">500</div><div class="unit">mcg/day</div></div>
+    <div class="nutrient-box"><div class="icon">💊</div><div class="label L-en">Vitamin B12</div><div class="label L-ar">فيتامين ب12</div><div class="value">2.8</div><div class="unit">mcg/day</div></div>
+    <div class="nutrient-box"><div class="icon">🔵</div><div class="label L-en">Zinc</div><div class="label L-ar">زنك</div><div class="value">12</div><div class="unit">mg/day</div></div>
+    <div class="nutrient-box"><div class="icon">🌿</div><div class="label L-en">Iodine</div><div class="label L-ar">يود</div><div class="value">290</div><div class="unit">mcg/day</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title L-en">⚖️ Macronutrient Balance</div>
+    <div class="card-title L-ar">⚖️ توازن العناصر الكبرى</div>
+    <p style="font-size:0.85rem;line-height:1.9;color:var(--muted)" class="L-en">
+      <strong style="color:var(--navy)">Carbohydrates:</strong> 45–65% — whole grains, legumes, vegetables<br>
+      <strong style="color:var(--navy)">Protein:</strong> 20–25% — lean meats, beef, lamb, chicken, fish, eggs, dairy<br>
+      <strong style="color:var(--navy)">Healthy Fats:</strong> 25–35% — olive oil, nuts, oily fish
+    </p>
+    <p style="font-size:0.85rem;line-height:1.9;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">
+      <strong style="color:var(--navy)">الكربوهيدرات:</strong> 45–65٪ — حبوب كاملة، بقوليات، خضروات<br>
+      <strong style="color:var(--navy)">البروتين:</strong> 20–25٪ — لحوم حمراء، لحم بقري، ضأن، فراخ، سمك، بيض، ألبان<br>
+      <strong style="color:var(--navy)">الدهون الصحية:</strong> 25–35٪ — زيت زيتون، مكسرات، سمك زيتي
+    </p>
+    <div style="margin-top:14px;background:var(--warm);border-radius:12px;padding:14px;border:1px solid #b8d4ec">
+      <p style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:10px" class="L-en">📊 Example for a 1,900 kcal breastfeeding day:</p>
+      <p style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:10px;font-family:'Tajawal',sans-serif" class="L-ar">📊 مثال ليوم رضاعة على ١٩٠٠ سعر حراري:</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center">
+        <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #c8e0f8">
+          <div style="font-size:1.2rem;font-weight:700;color:var(--navy)">~240g</div>
+          <div style="font-size:0.72rem;color:var(--muted)" class="L-en">Carbs · 50%</div>
+          <div style="font-size:0.72rem;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">كربوهيدرات · 50٪</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #c8e0f8">
+          <div style="font-size:1.2rem;font-weight:700;color:var(--navy)">~105g</div>
+          <div style="font-size:0.72rem;color:var(--muted)" class="L-en">Protein · 22%</div>
+          <div style="font-size:0.72rem;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">بروتين · 22٪</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:10px;border:1px solid #c8e0f8">
+          <div style="font-size:1.2rem;font-weight:700;color:var(--navy)">~59g</div>
+          <div style="font-size:0.72rem;color:var(--muted)" class="L-en">Fats · 28%</div>
+          <div style="font-size:0.72rem;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">دهون · 28٪</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card green">
+    <div class="card-title L-en">💧 Hydration is Essential</div>
+    <div class="card-title L-ar">💧 الترطيب ضرورة</div>
+    <div class="water-bar-wrap">
+      <div class="water-label">
+        <span class="L-en">Daily goal</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الهدف اليومي</span>
+        <span style="color:var(--blue);font-weight:700">3–4 L</span>
+      </div>
+      <div class="water-track"><div class="water-fill"></div></div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--muted)" class="L-en">Breast milk is 87% water. Drink a glass with every feed of Sherif. Soups, herbal teas, and juices all count.</p>
+    <p style="font-size:0.82rem;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">حليب الثدي 87٪ ماء. اشربي كوباً مع كل رضعة لشريف. الشوربات والشاي العشبي والعصائر كلها تُحتسب.</p>
+  </div>
+</div>
+
+<!-- FOODS -->
+<div class="section" id="foods">
+  <h2 class="section-title L-en">Best Foods for Yasmine</h2>
+  <h2 class="section-title L-ar">أفضل الأطعمة لياسمين</h2>
+  <p class="section-sub L-en">Daily portions framework — ~1,900 kcal/day. Every portion nourishes Yasmine and Sherif.</p>
+  <p class="section-sub L-ar">إطار الحصص اليومية — حوالي ١٩٠٠ سعر يومياً. كل حصة تغذّي ياسمين وشريف معاً.</p>
+
+  <div class="card" style="border-left-color:var(--navy);margin-bottom:22px">
+    <div class="card-title L-en">📋 Daily Portions Framework — ~1,900 kcal/day</div>
+    <div class="card-title L-ar">📋 إطار الحصص اليومية — حوالي ١٩٠٠ سعر حراري</div>
+
+    <div style="background:#f8fbff;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #b8d4ec">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🌾 Grains & Starches</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🌾 حبوب ونشويات</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">½ large baladi loaf (~40g) = 1 portion</li><li style="margin-bottom:3px">½ cup cooked rice, pasta, bulgur or freekeh = 1 portion</li><li style="margin-bottom:3px">1 medium potato (boiled/baked) = 1 portion</li><li style="margin-bottom:3px">3 tbsp dry oats = 1 portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">½ رغيف بلدي كبير (~40 جم) = حصة</li><li style="margin-bottom:3px">½ كوب أرز أو معكرونة أو برغل مطبوخ = حصة</li><li style="margin-bottom:3px">1 بطاطس وسط مسلوقة = حصة</li><li style="margin-bottom:3px">3 ملاعق كبيرة شوفان جاف = حصة</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">5–6 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">5–6 حصص / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">≈ 90–110 kcal each · 500–600 kcal/day</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">≈ 90–110 سعر / حصة</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff9ee;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #e8d8b0">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🥩 Protein Foods</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🥩 البروتينات</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">90g cooked chicken or turkey (skinless) = 1 portion</li><li style="margin-bottom:3px">75–90g cooked lean beef or lamb = 1 portion</li><li style="margin-bottom:3px">100g cooked fish = 1 portion</li><li style="margin-bottom:3px">2 whole eggs = 1 portion</li><li style="margin-bottom:3px">1 cup cooked lentils, beans or chickpeas = 1 portion</li><li style="margin-bottom:3px">60g cooked liver = 1 portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">90 جم دجاج أو ديك رومي (بدون جلد) = حصة</li><li style="margin-bottom:3px">75–90 جم لحم بقري أو ضأن = حصة</li><li style="margin-bottom:3px">100 جم سمك مطبوخ = حصة</li><li style="margin-bottom:3px">2 بيضة = حصة</li><li style="margin-bottom:3px">1 كوب عدس أو فاصوليا أو حمص مطبوخ = حصة</li><li style="margin-bottom:3px">60 جم كبدة = حصة</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">4–5 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">4–5 حصص / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">≈ 100–150 kcal · 20–25g protein each</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">≈ 100–150 سعر · 20–25 جم بروتين</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#f0faf5;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #a0d8b8">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🥛 Milk & Dairy</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🥛 الألبان</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">1 glass milk (200–250 ml) = 1 portion</li><li style="margin-bottom:3px">1 small zabadi / yoghurt (125–150g) = 1 portion</li><li style="margin-bottom:3px">30g cheese (gebna beida, romi, feta) = 1 portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">1 كوب لبن (200–250 مل) = حصة</li><li style="margin-bottom:3px">1 زبادي صغير (125–150 جم) = حصة</li><li style="margin-bottom:3px">30 جم جبنة (بيضاء، رومي، فيتا) = حصة</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">3 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">3 حصص / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">≈ 100–150 kcal each · 300–400 kcal/day</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">≈ 100–150 سعر / حصة</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fffbee;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #e8d090">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🫚 Added Fats</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🫚 الدهون المضافة</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">1 tsp olive / sunflower / canola oil = 1 portion</li><li style="margin-bottom:3px">1 tsp butter or ghee = 1 portion</li><li style="margin-bottom:3px">6–7 nuts (almonds, walnuts, pistachios) = 1 portion</li><li style="margin-bottom:3px">1 tsp tahini = 1 portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">1 ملعقة صغيرة زيت زيتون / عباد الشمس = حصة</li><li style="margin-bottom:3px">1 ملعقة صغيرة زبدة أو سمنة = حصة</li><li style="margin-bottom:3px">6–7 حبات مكسرات (لوز، جوز، فستق) = حصة</li><li style="margin-bottom:3px">1 ملعقة صغيرة طحينة = حصة</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">4–5 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">4–5 حصص / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">≈ 40–50 kcal each · 200–250 kcal/day</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">≈ 40–50 سعر / حصة</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#fff5f5;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #f0c8c8">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🍎 Fruit</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🍎 الفاكهة</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">1 apple, orange, pear or banana = 1 portion</li><li style="margin-bottom:3px">2 small tangerines = 1 portion</li><li style="margin-bottom:3px">1 cup melon, guava, strawberries or grapes = 1 portion</li><li style="margin-bottom:3px">3 dates = 1 portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">1 تفاحة أو برتقالة أو إجاصة أو موزة = حصة</li><li style="margin-bottom:3px">2 يوسفي صغير = حصة</li><li style="margin-bottom:3px">1 كوب شمام أو جوافة أو فراولة = حصة</li><li style="margin-bottom:3px">3 تمرات = حصة</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">2–3 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">2–3 حصص / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">≈ 60–80 kcal each · 150–200 kcal/day</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">≈ 60–80 سعر / حصة</div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#f0fff5;border-radius:12px;padding:14px;margin-bottom:10px;border:1px solid #90d8a8">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px" class="L-en">🥬 Vegetables</div>
+          <div style="font-weight:700;font-size:0.92rem;color:var(--navy);margin-bottom:8px;font-family:'Tajawal',sans-serif" class="L-ar">🥬 الخضروات</div>
+          <ul style="padding-left:16px;color:var(--muted);font-size:0.78rem;line-height:1.7" class="L-en"><li style="margin-bottom:3px">Cucumber, tomato, lettuce, molokhia, zucchini, peppers, eggplant — eat freely (≥ 2 cups/day)</li><li style="margin-bottom:3px">Starchy veg (peas, corn, carrots, beetroot): ½ cup = 1 starch portion</li></ul>
+          <ul style="padding-right:16px;padding-left:0;color:var(--muted);font-size:0.78rem;line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar"><li style="margin-bottom:3px">خيار، طماطم، خس، ملوخية، كوسا، فلفل، باذنجان — تناولي بحرية (≥ كوبان يومياً)</li><li style="margin-bottom:3px">الخضروات النشوية (بازلاء، ذرة، جزر، شمندر): ½ كوب = حصة نشوية</li></ul>
+        </div>
+        <div style="text-align:center;min-width:130px">
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px" class="L-en">≥ 3 portions/day</div>
+          <div style="background:var(--navy);color:#fff;border-radius:20px;padding:4px 14px;font-size:0.78rem;font-weight:700;margin-bottom:6px;font-family:'Tajawal',sans-serif" class="L-ar">3 حصص أو أكثر / يوم</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5" class="L-en">Mostly free · ~50 kcal/day</div>
+          <div style="font-size:0.7rem;color:var(--blue);line-height:1.5;font-family:'Tajawal',sans-serif" class="L-ar">بحرية تقريباً · ~50 سعر/يوم</div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;background:#e8f4ff;border-radius:10px;padding:10px 14px;margin-top:6px;color:var(--muted);line-height:1.7" class="L-en">
+      💡 These daily portions together provide approximately <strong style="color:var(--navy)">1,800–2,000 kcal</strong> — safe for gradual weight loss while fully protecting Sherif's milk supply.
+    </p>
+    <p style="font-size:0.78rem;background:#e8f4ff;border-radius:10px;padding:10px 14px;margin-top:6px;color:var(--muted);line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar">
+      💡 هذه الحصص اليومية مجتمعةً توفر حوالي <strong style="color:var(--navy)">١٨٠٠–٢٠٠٠ سعر حراري</strong> — آمنة لفقدان الوزن التدريجي مع الحفاظ الكامل على حليب شريف.
+    </p>
+  </div>
+
+  <!-- MEAT, FISH & EGGS CARD -->
+  <div class="card">
+    <div class="card-title L-en">🥩 Meat, Poultry, Fish &amp; Eggs</div>
+    <div class="card-title L-ar">🥩 اللحوم والدواجن والأسماك والبيض</div>
+    <div class="food-grid">
+      <div class="food-item"><div class="fi-icon">🥚</div><div class="fi-name L-en">Eggs</div><div class="fi-name L-ar">البيض</div><div class="fi-why">Protein + B12 + Choline</div><div class="fi-portion L-en">2 eggs/day</div><div class="fi-portion L-ar">٢ بيضتان / يوم</div></div>
+      <div class="food-item"><div class="fi-icon">🍗</div><div class="fi-name L-en">Grilled Chicken</div><div class="fi-name L-ar">الفراخ المشوية</div><div class="fi-why">Lean protein + Iron</div><div class="fi-portion L-en">90–120g / meal</div><div class="fi-portion L-ar">90–120 جم / وجبة</div></div>
+      <div class="food-item"><div class="fi-icon">🥩</div><div class="fi-name L-en">Lean Beef</div><div class="fi-name L-ar">لحم بقري</div><div class="fi-why">Iron + Zinc + B12</div><div class="fi-portion L-en">75–90g, 3×/week</div><div class="fi-portion L-ar">75–90 جم، 3×/أسبوع</div></div>
+      <div class="food-item"><div class="fi-icon">🐑</div><div class="fi-name L-en">Lamb (Daani)</div><div class="fi-name L-ar">لحم ضأن</div><div class="fi-why">Iron + B12 + Zinc</div><div class="fi-portion L-en">75–90g, 1–2×/week</div><div class="fi-portion L-ar">75–90 جم، 1–2×/أسبوع</div></div>
+      <div class="food-item"><div class="fi-icon">🫀</div><div class="fi-name L-en">Liver (Kibda)</div><div class="fi-name L-ar">الكبدة</div><div class="fi-why">Iron + Folate + B12</div><div class="fi-portion L-en">60–75g, 1×/week</div><div class="fi-portion L-ar">60–75 جم، مرة/أسبوع</div></div>
+      <div class="food-item"><div class="fi-icon">🍖</div><div class="fi-name L-en">Kofta / Hawawshi</div><div class="fi-name L-ar">كفتة / حواوشي</div><div class="fi-why">Protein + Iron</div><div class="fi-portion L-en">2 pieces (100g)</div><div class="fi-portion L-ar">2 قطعتان (100 جم)</div></div>
+      <div class="food-item"><div class="fi-icon">🐟</div><div class="fi-name L-en">Bolti / Sardines</div><div class="fi-name L-ar">البلطي / السردين</div><div class="fi-why">Omega-3 + low mercury</div><div class="fi-portion L-en">100g fillet, 2–3×/week</div><div class="fi-portion L-ar">100 جم، 2–3×/أسبوع</div></div>
+      <div class="food-item"><div class="fi-icon">🐠</div><div class="fi-name L-en">Salmon / Mackerel</div><div class="fi-name L-ar">السالمون / الإسقمري</div><div class="fi-why">DHA + Vit D + Omega-3</div><div class="fi-portion L-en">100g, 2–3×/week</div><div class="fi-portion L-ar">100 جم، 2–3×/أسبوع</div></div>
+      <div class="food-item"><div class="fi-icon">🦐</div><div class="fi-name L-en">Shrimp / Calamari</div><div class="fi-name L-ar">الجمبري / الكلاماري</div><div class="fi-why">Iodine + Zinc + Protein</div><div class="fi-portion L-en">100g, 2–3×/week</div><div class="fi-portion L-ar">100 جم، 2–3×/أسبوع</div></div>
+    </div>
+    <p style="font-size:0.77rem;background:#eef6ff;border-radius:10px;padding:10px 14px;margin-top:12px;color:var(--muted);line-height:1.7" class="L-en">🐟 <strong style="color:var(--navy)">Fish target: 2–3 portions/week.</strong> Aim for at least 1 oily fish (sardines, salmon, mackerel) for Sherif's brain and eye development via DHA in breast milk. All listed fish are low-mercury and NHS-safe.</p>
+    <p style="font-size:0.77rem;background:#eef6ff;border-radius:10px;padding:10px 14px;margin-top:12px;color:var(--muted);line-height:1.7;font-family:'Tajawal',sans-serif" class="L-ar">🐟 <strong style="color:var(--navy)">هدف السمك: 2–3 حصص أسبوعياً.</strong> استهدفي حصة سمك زيتي (سردين أو سالمون أو ماكريل) على الأقل لدعم نمو مخ وعيني شريف عبر DHA في حليب الثدي.</p>
+  </div>
+
+  <!-- DAIRY CARD -->
+  <div class="card green">
+    <div class="card-title L-en">🥛 Dairy</div>
+    <div class="card-title L-ar">🥛 الألبان</div>
+    <div class="food-grid">
+      <div class="food-item"><div class="fi-icon">🥛</div><div class="fi-name L-en">Full-fat Milk</div><div class="fi-name L-ar">لبن كامل الدسم</div><div class="fi-why">Calcium + Vit D</div><div class="fi-portion L-en">200–250 ml / day</div><div class="fi-portion L-ar">200–250 مل / يوم</div></div>
+      <div class="food-item"><div class="fi-icon">🍶</div><div class="fi-name L-en">Zabadi (Yogurt)</div><div class="fi-name L-ar">الزبادي</div><div class="fi-why">Probiotics + Calcium</div><div class="fi-portion L-en">125–150g / day</div><div class="fi-portion L-ar">125–150 جم / يوم</div></div>
+      <div class="food-item"><div class="fi-icon">🧀</div><div class="fi-name L-en">Gebna Beida</div><div class="fi-name L-ar">الجبنة البيضاء</div><div class="fi-why">Calcium + Protein</div><div class="fi-portion L-en">30g / serving</div><div class="fi-portion L-ar">30 جم / حصة</div></div>
+    </div>
+  </div>
+
+  <!-- GRAINS CARD -->
+  <div class="card navy">
+    <div class="card-title L-en">🌾 Grains &amp; Legumes</div>
+    <div class="card-title L-ar">🌾 الحبوب والبقوليات</div>
+    <div class="food-grid">
+      <div class="food-item"><div class="fi-icon">🍞</div><div class="fi-name L-en">Aish Baladi</div><div class="fi-name L-ar">العيش البلدي</div><div class="fi-why">Fibre + Iron + B-vit</div><div class="fi-portion L-en">½ large loaf · 50g CHO</div><div class="fi-portion L-ar">½ رغيف كبير · 50 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🟤</div><div class="fi-name L-en">Ful Medames</div><div class="fi-name L-ar">الفول المدمس</div><div class="fi-why">Protein + Folate + Iron</div><div class="fi-portion L-en">¾ cup cooked · 30g CHO</div><div class="fi-portion L-ar">¾ كوب مطبوخ · 30 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🟠</div><div class="fi-name L-en">Lentils (Ads)</div><div class="fi-name L-ar">العدس</div><div class="fi-why">Iron + Folate</div><div class="fi-portion L-en">½ cup cooked · 20g CHO</div><div class="fi-portion L-ar">½ كوب مطبوخ · 20 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🌾</div><div class="fi-name L-en">Oats (Shofan)</div><div class="fi-name L-ar">الشوفان</div><div class="fi-why">Boosts milk supply</div><div class="fi-portion L-en">3 tbsp dry · 27g CHO</div><div class="fi-portion L-ar">3 ملاعق كبيرة جاف · 27 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🌿</div><div class="fi-name L-en">Brown Rice</div><div class="fi-name L-ar">الأرز البني</div><div class="fi-why">Energy + Magnesium</div><div class="fi-portion L-en">½ cup cooked · 22g CHO</div><div class="fi-portion L-ar">½ كوب مطبوخ · 22 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">⬛</div><div class="fi-name L-en">Hummus</div><div class="fi-name L-ar">الحمص</div><div class="fi-why">Protein + Healthy fat</div><div class="fi-portion L-en">3 tbsp · 12g CHO</div><div class="fi-portion L-ar">3 ملاعق كبيرة · 12 جم كربوهيدرات</div></div>
+    </div>
+  </div>
+
+  <!-- VEGETABLES & FRUIT -->
+  <div class="card gold">
+    <div class="card-title L-en">🥬 Vegetables &amp; Fruit</div>
+    <div class="card-title L-ar">🥬 الخضروات والفاكهة</div>
+    <div class="food-grid">
+      <div class="food-item"><div class="fi-icon">🥬</div><div class="fi-name L-en">Molokhia</div><div class="fi-name L-ar">الملوخية</div><div class="fi-why">Iron + Calcium + Vit K</div><div class="fi-portion L-en">1 cup soup / meal</div><div class="fi-portion L-ar">١ كوب شوربة / وجبة</div></div>
+      <div class="food-item"><div class="fi-icon">🍠</div><div class="fi-name L-en">Sweet Potato</div><div class="fi-name L-ar">البطاطا الحلوة</div><div class="fi-why">Vit A + Potassium</div><div class="fi-portion L-en">1 medium · 26g CHO</div><div class="fi-portion L-ar">١ حبة وسط · 26 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🍌</div><div class="fi-name L-en">Banana</div><div class="fi-name L-ar">الموز</div><div class="fi-why">Potassium + Energy</div><div class="fi-portion L-en">½ medium · 12g CHO</div><div class="fi-portion L-ar">½ موزة وسط · 12 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🍋</div><div class="fi-name L-en">Citrus / Guava</div><div class="fi-name L-ar">موالح / جوافة</div><div class="fi-why">Vit C → iron absorption</div><div class="fi-portion L-en">1 medium · 15g CHO</div><div class="fi-portion L-ar">١ حبة وسط · 15 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🟤</div><div class="fi-name L-en">Dates (Tamr)</div><div class="fi-name L-ar">التمر</div><div class="fi-why">Iron + Potassium</div><div class="fi-portion L-en">3 dates · 20g CHO</div><div class="fi-portion L-ar">٣ تمرات · 20 جم كربوهيدرات</div></div>
+      <div class="food-item"><div class="fi-icon">🌿</div><div class="fi-name L-en">Galactagogues</div><div class="fi-name L-ar">مدرّات الحليب</div><div class="fi-why">Anise · Caraway · Fennel · Moringa · Oats · Sesame</div><div class="fi-portion L-en">As teas / daily</div><div class="fi-portion L-ar">كشاي / يومياً</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- DRINKS -->
+<div class="section" id="drinks">
+  <h2 class="section-title L-en">Milk-Boosting Drinks</h2>
+  <h2 class="section-title L-ar">مشروبات تزيد وتدعم الحليب</h2>
+  <p class="section-sub L-en">Safe, effective drinks to keep Yasmine hydrated and support Sherif's milk supply.</p>
+  <p class="section-sub L-ar">مشروبات آمنة وفعّالة لترطيب ياسمين ودعم إنتاج الحليب لشريف.</p>
+  <div class="drink-grid">
+    <div class="drink-card">
+      <div class="dk-icon">⭐</div>
+      <div class="dk-name L-en">Anise Tea (Yansoon)</div>
+      <div class="dk-name L-ar">شاي اليانسون</div>
+      <div class="dk-desc L-en">Classic Egyptian lactation drink. Mildly galactagogue, calming, aids digestion. <strong>2 cups/day warm.</strong></div>
+      <div class="dk-desc L-ar">مشروب رضاعة مصري أصيل. مُدرّ خفيف للحليب ومهدئ. <strong>كوبان يومياً دافئَيْن.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🥛</div>
+      <div class="dk-name L-en">Caraway Milk (Karawya)</div>
+      <div class="dk-name L-ar">لبن الكراوية</div>
+      <div class="dk-desc L-en">Warm full-fat milk with caraway seeds. Traditional Egyptian lactation drink. <strong>1 cup/day.</strong></div>
+      <div class="dk-desc L-ar">لبن كامل الدسم دافئ مع الكراوية. وصفة مصرية تقليدية. <strong>كوب واحد يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🌸</div>
+      <div class="dk-name L-en">Fennel Tea (Shamar)</div>
+      <div class="dk-name L-ar">شاي الشمر</div>
+      <div class="dk-desc L-en">Phytoestrogens support milk; reduces Sherif's colic via milk. <strong>1–2 cups/day.</strong></div>
+      <div class="dk-desc L-ar">يدعم الحليب ويقلل مغص شريف. <strong>١–٢ كوب يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🌿</div>
+      <div class="dk-name L-en">Moringa Tea</div>
+      <div class="dk-name L-ar">شاي المورينجا</div>
+      <div class="dk-desc L-en">Rich in iron, calcium, vitamins. Supports milk volume. <strong>1 cup/day.</strong></div>
+      <div class="dk-desc L-ar">غني بالحديد والكالسيوم. يدعم كمية الحليب. <strong>كوب واحد يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🌾</div>
+      <div class="dk-name L-en">Oat Milk (Homemade)</div>
+      <div class="dk-name L-ar">حليب الشوفان</div>
+      <div class="dk-desc L-en">Blend oats + warm water, strain, add cinnamon. Beta-glucan supports prolactin. <strong>1 glass/day.</strong></div>
+      <div class="dk-desc L-ar">شوفان + ماء دافئ، صفّي وأضيفي قرفة. يدعم البرولاكتين. <strong>كوب واحد يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🍵</div>
+      <div class="dk-name L-en">Chamomile Tea</div>
+      <div class="dk-name L-ar">شاي البابونج</div>
+      <div class="dk-desc L-en">Calming — helps Yasmine relax which improves the milk let-down reflex. <strong>1 cup at night.</strong></div>
+      <div class="dk-desc L-ar">مهدئ — يساعد على الاسترخاء مما يحسّن انعكاس إدرار الحليب. <strong>كوب ليلاً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🥕</div>
+      <div class="dk-name L-en">Carrot & Ginger Juice</div>
+      <div class="dk-name L-ar">عصير الجزر والزنجبيل</div>
+      <div class="dk-desc L-en">Beta-carotene → Vit A in milk, critical for Sherif's immunity and vision. <strong>1 glass/day.</strong></div>
+      <div class="dk-desc L-ar">بيتا كاروتين ← فيتامين أ في الحليب، ضروري لمناعة وبصر شريف. <strong>كوب يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🍋</div>
+      <div class="dk-name L-en">Lemon &amp; Mint Water</div>
+      <div class="dk-name L-ar">ماء الليمون والنعناع</div>
+      <div class="dk-desc L-en">Refreshing hydration. Vit C enhances iron absorption. <strong>2–3 glasses/day.</strong></div>
+      <div class="dk-desc L-ar">ترطيب منعش. فيتامين ج يعزز امتصاص الحديد. <strong>٢–٣ أكواب يومياً.</strong></div>
+    </div>
+    <div class="drink-card">
+      <div class="dk-icon">🍎</div>
+      <div class="dk-name L-en">Dried Fruit Compote</div>
+      <div class="dk-name L-ar">كومبوت الفواكه المجففة</div>
+      <div class="dk-desc L-en">Simmer dates, raisins, apricots in water — drink warm. Iron + Potassium. <strong>1 cup/day.</strong></div>
+      <div class="dk-desc L-ar">تمر وزبيب ومشمش في ماء — اشربي دافئاً. حديد وبوتاسيوم. <strong>كوب يومياً.</strong></div>
+    </div>
+  </div>
+  <div class="card red" style="margin-top:14px">
+    <div class="card-title L-en" style="color:#c0392b">🚫 Drinks to Avoid</div>
+    <div class="card-title L-ar" style="color:#c0392b">🚫 مشروبات يجب تجنبها</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+      <span class="tag" style="background:#fff0f0;border-color:#ffc0c0;color:#c0392b">☕ Coffee — up to 2 cups/day; prefer decaf</span>
+      <span class="tag" style="background:#fff0f0;border-color:#ffc0c0;color:#c0392b">🧃 Soft drinks &amp; sodas</span>
+      <span class="tag" style="background:#fff0f0;border-color:#ffc0c0;color:#c0392b">🌿 Sage tea — reduces milk!</span>
+      <span class="tag" style="background:#fff0f0;border-color:#ffc0c0;color:#c0392b">⚗️ Unknown herbal blends</span>
+    </div>
+    <p style="font-size:0.8rem;color:var(--muted)" class="L-en">⚠️ Sage (Maryamiya) is popular in Egypt but well-documented to <strong>decrease</strong> milk supply — avoid completely during breastfeeding. Also, decaffeinated coffee is an excellent choice if Yasmine wants more than 2 cups.</p>
+    <p style="font-size:0.8rem;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">⚠️ المريمية منتشرة في مصر لكنها تُقلّل الحليب — تجنّبيها تماماً. القهوة منزوعة الكافيين خيار ممتاز إذا أرادت ياسمين أكثر من كوبين.</p>
+  </div>
+</div>
+
+<!-- 7-DAY PLAN -->
+<div class="section" id="plan">
+  <h2 class="section-title L-en">7-Day Meal Plan</h2>
+  <h2 class="section-title L-ar">خطة الوجبات لـ ٧ أيام</h2>
+  <p class="section-sub L-en">~1,800–2,000 kcal/day · Safe for postpartum weight loss while protecting milk supply</p>
+  <p class="section-sub L-ar">~١٨٠٠–٢٠٠٠ سعر يومياً · آمنة لفقدان وزن ياسمين مع حماية حليب شريف</p>
+  <div class="day-selector" id="daySelector"></div>
+  <div id="mealTimeline"></div>
+</div>
+
+<!-- FEEDING SHERIF -->
+<div class="section" id="feeding">
+  <h2 class="section-title L-en">How to Breastfeed Sherif</h2>
+  <h2 class="section-title L-ar">كيف ترضعين شريف</h2>
+  <p class="section-sub L-en">Practical guidance for a successful and comfortable breastfeeding journey.</p>
+  <p class="section-sub L-ar">إرشادات عملية لرحلة رضاعة ناجحة ومريحة مع شريف.</p>
+  <div class="card navy">
+    <div class="card-title L-en">🕐 Frequency, Position &amp; Signs</div>
+    <div class="card-title L-ar">🕐 التواتر والوضع والعلامات</div>
+    <div class="feeding-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title L-en">Feed Sherif on demand — 8 to 12 times per 24 hours</div>
+        <div class="step-title L-ar">أرضعي شريف حسب الطلب — 8 إلى 12 مرة كل 24 ساعة</div>
+        <div class="step-body L-en">Newborn stomachs are tiny. Breast milk digests in 1.5–2 hours, so frequent feeding is normal and essential.</div>
+        <div class="step-body L-ar">معدة الرضيع صغيرة جداً. الحليب يُهضم في 1.5–2 ساعة، لذا التكرار طبيعي وضروري لتثبيت إنتاج الحليب.</div>
+      </div>
+    </div>
+    <div class="feeding-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title L-en">Let Sherif empty one breast fully before switching</div>
+        <div class="step-title L-ar">دعي شريف يُفرغ ثدياً واحداً تماماً قبل التبديل</div>
+        <div class="step-body L-en">The last milk (hindmilk) is richer in fat — crucial for Sherif's weight gain and brain development.</div>
+        <div class="step-body L-ar">الحليب الأخير أغنى بالدهون — ضروري لزيادة وزن شريف ونمو مخه.</div>
+      </div>
+    </div>
+    <div class="feeding-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title L-en">Ensure a correct feeding position — whole areola, not just nipple</div>
+        <div class="step-title L-ar">تأكدي من وضع الرضاعة الصحيح — الهالة بالكامل وليس الحلمة فقط</div>
+        <div class="step-body L-en">Sherif's chin touches breast, lips flanged outward. Correct position = no pain + more milk.</div>
+        <div class="step-body L-ar">ذقن شريف يلمس الثدي وشفتيه منقلبتان. وضع الرضاعة الصحيح = لا ألم + حليب أكثر لشريف.</div>
+      </div>
+    </div>
+    <div class="feeding-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title L-en">Signs Sherif is getting enough milk</div>
+        <div class="step-title L-ar">علامات أن شريف يأخذ حليباً كافياً</div>
+        <div class="step-body L-en">✅ 6+ wet nappies/day after day 5 · ✅ Steady weight gain after day 4 · ✅ Satisfied after feeds · ✅ Swallowing sounds heard.</div>
+        <div class="step-body L-ar">✅ 6 حفاضات مبللة أو أكثر يومياً بعد اليوم الخامس · ✅ زيادة منتظمة في الوزن · ✅ يبدو مرتاحاً بعد الرضعة · ✅ تسمعين أصوات البلع.</div>
+      </div>
+    </div>
+    <div class="feeding-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title L-en">Night feeds are crucial — prolactin peaks 2–6 AM</div>
+        <div class="step-title L-ar">الرضاعة الليلية ضرورية — البرولاكتين في ذروته بين 2–6 صباحاً</div>
+        <div class="step-body L-en">Keep water and a light snack by the bed. Side-lying position is restful and safe once breastfeeding is established.</div>
+        <div class="step-body L-ar">احتفظي بماء ووجبة خفيفة بجانب السرير. الاستلقاء جانباً مريح وآمن بعد ترسيخ الرضاعة.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HONEY -->
+<div class="section" id="honey">
+  <h2 class="section-title L-en">🍯 The Honey Question</h2>
+  <h2 class="section-title L-ar">🍯 سؤال العسل</h2>
+  <p class="section-sub L-en">One of the most common misconceptions among new Egyptian mothers — set straight with science.</p>
+  <p class="section-sub L-ar">من أكثر المفاهيم الخاطئة انتشاراً — إليك الحقيقة العلمية.</p>
+  <div class="honey-myth">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <span style="font-size:36px">🍯</span>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#7a4f00" class="L-en">Can Yasmine eat honey while breastfeeding Sherif?</h3>
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:1.2rem;color:#7a4f00" class="L-ar">هل تستطيع ياسمين أكل العسل أثناء إرضاع شريف؟</h3>
+    </div>
+    <div class="myth-row">
+      <div class="myth-box wrong">
+        <div class="mb-label">❌ The Myth / الخرافة</div>
+        <p class="L-en">"I cannot eat honey — it will harm Sherif through my milk."</p>
+        <p class="L-ar" style="font-family:'Tajawal',sans-serif">"لا أستطيع أكل العسل لأنه سيضر شريف عبر حليبي."</p>
+      </div>
+      <div class="myth-box right">
+        <div class="mb-label">✅ The Truth / الحقيقة</div>
+        <p class="L-en">Yasmine can eat honey freely. The only restriction is <strong>giving honey directly to Sherif</strong> under 12 months — not the mother's diet.</p>
+        <p class="L-ar" style="font-family:'Tajawal',sans-serif">ياسمين تأكل العسل بحرية. القيد الوحيد هو <strong>إعطاء العسل لشريف مباشرةً</strong> قبل 12 شهراً — وليس على تغذية الأم.</p>
+      </div>
+    </div>
+  </div>
+  <div class="card gold">
+    <div class="card-title L-en">🔬 The Science</div>
+    <div class="card-title L-ar">🔬 العلم وراء ذلك</div>
+    <ul class="tip-list">
+      <li><span class="tip-icon">🦠</span><div>
+        <div class="L-en">Honey may contain <em>Clostridium botulinum</em> spores — only dangerous if given directly to a baby under 12 months whose gut is immature.</div>
+        <div class="L-ar" style="font-family:'Tajawal',sans-serif">العسل قد يحتوي على جراثيم — خطرة فقط عند إعطائها مباشرةً لرضيع دون 12 شهراً.</div>
+      </div></li>
+      <li><span class="tip-icon">🛡️</span><div>
+        <div class="L-en">Yasmine's adult digestive system <strong>fully destroys the spores</strong> before they reach her blood. They cannot pass into breast milk — confirmed by WHO, AAP, and EFSA.</div>
+        <div class="L-ar" style="font-family:'Tajawal',sans-serif">جهاز ياسمين الهضمي الناضج <strong>يدمر الجراثيم تماماً</strong> قبل وصولها للدم. لا تنتقل للحليب — مؤكَّد من WHO وAAP وEFSA.</div>
+      </div></li>
+      <li><span class="tip-icon">🍯</span><div>
+        <div class="L-en"><strong>1–2 tsp/day</strong> of honey in tea, porridge, or on bread is safe and a healthier alternative to refined sugar.</div>
+        <div class="L-ar" style="font-family:'Tajawal',sans-serif"><strong>١–٢ ملعقة صغيرة يومياً</strong> في الشاي أو الشوفان — آمنة وبديل أصح للسكر المكرر.</div>
+      </div></li>
+      <li><span class="tip-icon">🚫</span><div>
+        <div class="L-en"><strong>The only rule:</strong> Never give honey directly to Sherif until he is at least 12 months old.</div>
+        <div class="L-ar" style="font-family:'Tajawal',sans-serif"><strong>القاعدة الوحيدة:</strong> لا تعطي شريف عسلاً مباشرةً حتى يبلغ 12 شهراً على الأقل.</div>
+      </div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- SUPPLEMENTS -->
+<div class="section" id="supps">
+  <h2 class="section-title L-en">💊 Supplements Guide</h2>
+  <h2 class="section-title L-ar">💊 دليل المكملات الغذائية</h2>
+  <p class="section-sub L-en">Yasmine may benefit from certain supplements while breastfeeding Sherif.</p>
+  <p class="section-sub L-ar">ياسمين قد تستفيد من مكملات معينة أثناء إرضاع شريف.</p>
+
+  <h3 style="font-size:1rem;color:var(--navy);margin-bottom:14px" class="L-en">✅ Nutritional Supplements Yasmine May Need</h3>
+  <h3 style="font-size:1rem;color:var(--navy);margin-bottom:14px;font-family:'Tajawal',sans-serif" class="L-ar">✅ مكملات غذائية قد تحتاجها ياسمين</h3>
+  <div class="supp-grid">
+    <div class="supp-card">
+      <div class="sc-icon">🌸</div>
+      <div class="sc-name L-en">Postnatal Multivitamin</div>
+      <div class="sc-name L-ar">فيتامينات ما بعد الولادة</div>
+      <div class="sc-desc L-en">Recommended throughout breastfeeding — covers daily gaps especially on exhausting days. Continue for at least 6 months.</div>
+      <div class="sc-desc L-ar">موصى بها طوال فترة الرضاعة — تغطي النقص اليومي. استمري لمدة 6 أشهر على الأقل.</div>
+      <span class="sc-verdict safe L-en">Recommended</span>
+      <span class="sc-verdict safe L-ar">موصى به</span>
+    </div>
+    <div class="supp-card">
+      <div class="sc-icon">☀️</div>
+      <div class="sc-name L-en">Vitamin D3 — 1,000–2,000 IU/day</div>
+      <div class="sc-name L-ar">فيتامين د3 — 1000–2000 وحدة/يوم</div>
+      <div class="sc-desc L-en">Despite Egypt's sunshine, postpartum Vitamin D deficiency is common. Supports Sherif's bone development through milk.</div>
+      <div class="sc-desc L-ar">رغم شمس مصر، نقص فيتامين د شائع جداً بعد الولادة. يدعم نمو عظام شريف عبر الحليب.</div>
+      <span class="sc-verdict safe L-en">Likely needed</span>
+      <span class="sc-verdict safe L-ar">محتمل الحاجة</span>
+    </div>
+    <div class="supp-card">
+      <div class="sc-icon">🐟</div>
+      <div class="sc-name L-en">Omega-3 / DHA — 200–300 mg/day</div>
+      <div class="sc-name L-ar">أوميجا 3 / DHA — 200–300 ملجم/يوم</div>
+      <div class="sc-desc L-en">If fish intake is less than 2–3 portions/week, a DHA supplement supports Sherif's brain and vision development via breast milk.</div>
+      <div class="sc-desc L-ar">إذا كان تناول السمك أقل من 2–3 حصص أسبوعياً، مكمل DHA يدعم نمو مخ وبصر شريف عبر حليب الثدي.</div>
+      <span class="sc-verdict safe L-en">Consider if low fish</span>
+      <span class="sc-verdict safe L-ar">فكّري فيه عند قلة السمك</span>
+    </div>
+    <div class="supp-card">
+      <div class="sc-icon">🩸</div>
+      <div class="sc-name L-en">Iron</div>
+      <div class="sc-name L-ar">الحديد</div>
+      <div class="sc-desc L-en">May still be needed if haemoglobin was low after delivery, or if Yasmine feels excessive fatigue, pallor, or breathlessness.</div>
+      <div class="sc-desc L-ar">قد تحتاجه إذا كان الهيموجلوبين منخفضاً بعد الولادة، أو عند الشعور بإرهاق شديد أو شحوب.</div>
+      <span class="sc-verdict caution L-en">If haemoglobin was low</span>
+      <span class="sc-verdict caution L-ar">عند انخفاض الهيموجلوبين</span>
+    </div>
+    <div class="supp-card">
+      <div class="sc-icon">💊</div>
+      <div class="sc-name L-en">Vitamin B12</div>
+      <div class="sc-name L-ar">فيتامين ب12</div>
+      <div class="sc-desc L-en">Essential for Sherif's neurological development. A deficiency in Yasmine directly affects Sherif via milk.</div>
+      <div class="sc-desc L-ar">ضروري للنمو العصبي لشريف. النقص عند الأم ينتقل مباشرةً لشريف عبر الحليب.</div>
+      <span class="sc-verdict safe L-en">Check if diet lacks meat/eggs</span>
+      <span class="sc-verdict safe L-ar">راجعي عند قلة اللحوم والبيض</span>
+    </div>
+    <div class="supp-card">
+      <div class="sc-icon">🦴</div>
+      <div class="sc-name L-en">Calcium — 500–600 mg/day</div>
+      <div class="sc-name L-ar">الكالسيوم — 500–600 ملجم/يوم</div>
+      <div class="sc-desc L-en">Breastfeeding draws calcium from Yasmine's bones. If dairy intake is low, a supplement protects her bone density.</div>
+      <div class="sc-desc L-ar">الرضاعة تسحب الكالسيوم من عظام ياسمين. إذا كانت منتجات الألبان قليلة، المكمل يحمي كثافة عظامها.</div>
+      <span class="sc-verdict caution L-en">If low dairy intake</span>
+      <span class="sc-verdict caution L-ar">عند قلة منتجات الألبان</span>
+    </div>
+  </div>
+
+  <div class="card gold" style="margin-top:18px">
+    <div class="card-title L-en">🌿 Herbal Supplements — Know Before You Take</div>
+    <div class="card-title L-ar">🌿 المكملات العشبية — اعرفي قبل أن تأخذي</div>
+    <p style="font-size:0.83rem;color:var(--muted);margin-bottom:14px" class="L-en">Many herbal products are marketed for breastfeeding mothers in Egypt. Here is a clear safety guide.</p>
+    <p style="font-size:0.83rem;color:var(--muted);margin-bottom:14px;font-family:'Tajawal',sans-serif" class="L-ar">كثير من المنتجات العشبية تُسوَّق للأمهات المرضعات في مصر. هذا دليل واضح للأمان.</p>
+    <table class="herb-table">
+      <tr><th>Herb / العشبة</th><th>Evidence / الأدلة</th><th>Verdict / الحكم</th></tr>
+      <tr><td><strong>Anise يانسون</strong></td><td class="L-en">Traditional galactagogue. Well-tolerated as herbal tea 1–2 cups/day.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">مُدرّ تقليدي. آمن كشاي 1–2 كوب يومياً.</td><td><span class="badge go">✅ Safe</span></td></tr>
+      <tr><td><strong>Fennel شمر</strong></td><td class="L-en">Phytoestrogens support milk. Reduces infant colic via milk. 1–2 cups/day.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">يدعم الحليب ويقلل مغص شريف. 1–2 كوب يومياً.</td><td><span class="badge go">✅ Safe</span></td></tr>
+      <tr><td><strong>Moringa مورينجا</strong></td><td class="L-en">Growing evidence for increasing milk volume. Nutritionally rich.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">أدلة متزايدة لزيادة كمية الحليب. غنية بالعناصر.</td><td><span class="badge go">✅ Safe</span></td></tr>
+      <tr><td><strong>Garlic Supps مكملات ثوم</strong></td><td class="L-en">Garlic in food is fine. High-dose supplements may alter milk flavour.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">الثوم في الطعام مقبول. الجرعات العالية قد تغيّر طعم الحليب.</td><td><span class="badge limit">🟡 Caution</span></td></tr>
+      <tr><td><strong>Sage مريمية</strong></td><td class="L-en">Well-documented to significantly <strong>reduce</strong> milk supply. Used to dry up milk at weaning.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">موثّقة بأنها <strong>تُقلّل</strong> الحليب. تُستخدم لإيقاف الحليب عند الفطام.</td><td><span class="badge stop">⛔ Avoid</span></td></tr>
+      <tr><td><strong>Unknown blends خلطات مجهولة</strong></td><td class="L-en">Many in Egyptian pharmacies have unlisted ingredients. Always check first.</td><td class="L-ar" style="font-family:'Tajawal',sans-serif">كثير منها تحتوي مكونات غير مُعلنة. تحققي دائماً.</td><td><span class="badge stop">⛔ Check first</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- AVOID -->
+<div class="section" id="avoid">
+  <h2 class="section-title L-en">What to Avoid or Limit</h2>
+  <h2 class="section-title L-ar">ما يجب تجنّبه أو تقليله</h2>
+  <p class="section-sub L-en">Foods and habits that can affect milk quality or Sherif's comfort.</p>
+  <p class="section-sub L-ar">أطعمة وعادات قد تؤثر على جودة الحليب أو راحة شريف.</p>
+  <div class="card red">
+    <div class="card-title L-en" style="color:#c0392b">🚫 Avoid or Limit</div>
+    <div class="card-title L-ar" style="color:#c0392b">🚫 تجنبي أو قلّلي</div>
+    <div class="avoid-grid">
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">☕</span><span class="L-en">Caffeine — up to 2 cups/day; prefer decaf</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الكافيين — حتى كوبان / يوم؛ اختاري منزوع الكافيين</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🐟</span><span class="L-en">Shark, swordfish, marlin — high mercury</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">أبو سيف والقرش — زئبق مرتفع</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🌶️</span><span class="L-en">Excess spicy food if Sherif is gassy</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الأكل الحار إذا كان شريف يتقلّص</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🥦</span><span class="L-en">Excess cabbage &amp; cauliflower</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الكرنب والقرنبيط بكثرة</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🌿</span><span class="L-en">Sage tea — reduces milk supply</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">المريمية — تُقلّل الحليب</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🍬</span><span class="L-en">Sugary sweets &amp; soft drinks</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الحلويات والمشروبات الغازية</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">🍟</span><span class="L-en">Deep fried &amp; fast food regularly</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الأكل المقلي والفاست فود</span></div>
+      <div class="avoid-item"><span style="font-size:22px;display:block;margin-bottom:4px">⚗️</span><span class="L-en">Unknown herbal blends</span><span class="L-ar" style="font-family:'Tajawal',sans-serif">الخلطات العشبية المجهولة</span></div>
+    </div>
+  </div>
+  <div class="card gold">
+    <div class="card-title L-en">⚠️ Watch Sherif's Reaction</div>
+    <div class="card-title L-ar">⚠️ راقبي ردة فعل شريف</div>
+    <p style="font-size:0.85rem;line-height:1.8;color:var(--muted)" class="L-en">Every baby responds differently. If Sherif seems gassy, colicky, or shows skin reactions after certain foods, eliminate that food for 2–3 weeks and observe. Common culprits: cow's milk products, citrus, nuts, soy. Keep a simple food diary.</p>
+    <p style="font-size:0.85rem;line-height:1.8;color:var(--muted);font-family:'Tajawal',sans-serif" class="L-ar">كل طفل يتفاعل بطريقة مختلفة. إذا بدا شريف يعاني من غازات أو تقلصات أو تفاعلات جلدية، جربي حذف ذلك الطعام 2–3 أسابيع. الأكثر شيوعاً: منتجات الألبان، الموالح، المكسرات، الصويا. احتفظي بمذكرة طعام بسيطة.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="L-en">Personalised Nutrition Plan by <strong>Prof. Randa Reda</strong> · For Yasmine &amp; Baby Sherif 👶🏻</span>
+  <span class="L-ar" style="font-family:'Tajawal',sans-serif">خطة تغذية شخصية بقلم <strong>أ.د. رندة رضا</strong> · لياسمين ومولودها شريف 👶🏻</span>
+</footer>
+
+<script>
+const mealPlans = [
+  { day:"Day 1 / اليوم ١", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Ful Medames Plate / فول مدمس",rows:[
+      ["Ful medames (cooked)","¾ cup (135g) · 30g CHO"],
+      ["Boiled egg","1 egg · 6g protein"],
+      ["Aish baladi","1 loaf (~100g) · 50g CHO"],
+      ["Tomatoes + cucumber","½ cup each"],
+      ["Olive oil drizzle","1 tsp"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Fruit & Nuts / فاكهة ومكسرات",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Almonds لوز","15g (12 pieces)"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Chicken & Molokhia / فراخ وملوخية",rows:[
+      ["Grilled chicken thigh","120g"],
+      ["Molokhia soup","1 cup"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Green salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Lentil Soup & Egg / عدس وبيض",rows:[
+      ["Red lentil soup","1.5 cups · 30g CHO"],
+      ["Boiled egg","1"],
+      ["Gebna beida جبنة","30g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 2 / اليوم ٢", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Oats Porridge / شوفان",rows:[
+      ["Oats شوفان (dry)","½ cup (40g) · 27g CHO"],
+      ["Full-fat milk","1 cup (to cook)"],
+      ["Banana موز","½ medium · 12g CHO"],
+      ["Honey عسل","1 tsp · 5g CHO"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Cheese & Almonds / جبنة ومكسرات",rows:[
+      ["Gebna beida جبنة","30g"],
+      ["Veg sticks (cucumber, carrots)","½ cup"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Bolti / سمك بلطي",rows:[
+      ["Bolti (tilapia) fillet","150g"],
+      ["Baked sweet potato","1 medium (150g) · 26g CHO"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Steamed vegetables","side"],
+      ["Olive oil drizzle","1 tsp"]]},
+    {time:"4:00 PM",type:"Snack",name:"Guava & Walnuts / جوافة وجوز",rows:[
+      ["Guava جوافة","1 medium · 12g CHO"],
+      ["Walnuts جوز","15g"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Shakshuka / شكشوكة",rows:[
+      ["Eggs in tomato sauce","3 eggs"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Side salad","cup"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 3 / اليوم ٣", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Veggie Omelette / أومليت",rows:[
+      ["Eggs بيض","2 eggs"],
+      ["Spinach + tomatoes","handful"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Full-fat milk","1 cup"],
+      ["Orange برتقال","1 medium · 15g CHO"]]},
+    {time:"10:00 AM",type:"Snack",name:"Apple & Almonds / تفاحة ومكسرات",rows:[
+      ["Apple تفاحة","1 medium · 18g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Chicken & Warak Enab / فراخ وورق عنب",rows:[
+      ["Grilled chicken","120g"],
+      ["Stuffed grape leaves","4–5 pieces · 25g CHO"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Tahini dressing طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Hummus & Eggs / حمص وبيض",rows:[
+      ["Hummus حمص","3 tbsp (45g) · 12g CHO"],
+      ["Boiled eggs","2"],
+      ["Gebna beida جبنة","30g"],
+      ["Fattoush salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 4 / اليوم ٤", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Cheese & Tomato / جبنة وطماطم",rows:[
+      ["Gebna beida جبنة","40g"],
+      ["Aish baladi","1 loaf (~100g) · 50g CHO"],
+      ["Sliced tomatoes طماطم","2 medium"],
+      ["Boiled egg","1"],
+      ["Olive oil drizzle","1 tsp"],
+      ["Mint tea نعناع","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Banana & Almonds / موز ولوز",rows:[
+      ["Banana موز","1 medium · 23g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Liver & Rice / كبدة وأرز",rows:[
+      ["Chicken or beef liver كبدة","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Sautéed veg (onion, pepper)","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi / زبادي",rows:[
+      ["Full-fat zabadi","1 cup"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Vegetable Soup & Eggs / شوربة وبيض",rows:[
+      ["Vegetable soup (carrot, zucchini, tomato)","1.5 cups"],
+      ["Scrambled eggs","2"],
+      ["Gebna beida جبنة","40g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 5 / اليوم ٥", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Ful & Egg / فول وبيض",rows:[
+      ["Ful medames فول","¾ cup (135g) · 30g CHO"],
+      ["Egg (fried in 1tsp olive oil)","1 egg"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Sliced tomatoes + cucumber","side"],
+      ["Lemon mint water","1 glass"]]},
+    {time:"10:00 AM",type:"Snack",name:"Orange & Almonds / برتقال ولوز",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Almonds لوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Salmon / سالمون مشوي",rows:[
+      ["Grilled salmon سالمون","130g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Steamed zucchini كوسا","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi & Dates / زبادي وتمر",rows:[
+      ["Full-fat zabadi","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Lentil Soup & Egg / عدس وبيض",rows:[
+      ["Red lentil soup عدس","1.5 cups · 30g CHO"],
+      ["Boiled egg","1"],
+      ["Gebna beida جبنة","30g"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 6 / اليوم ٦", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Herb Omelette / أومليت عطري",rows:[
+      ["Eggs","2"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Guava جوافة","½ medium · 6g CHO"],
+      ["Full-fat milk","1 cup"],
+      ["Anise tea يانسون","1 cup"]]},
+    {time:"10:00 AM",type:"Snack",name:"Hummus & Veggies / حمص وخضار",rows:[
+      ["Hummus حمص","3 tbsp (45g) · 12g CHO"],
+      ["Veg sticks (carrot, cucumber)","½ cup"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Beef Kofta & Rice / كفتة ولحم",rows:[
+      ["Grilled beef kofta كفتة","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Roasted vegetables خضار","½ cup"],
+      ["Salad","side"],
+      ["Small fresh orange juice","½ glass"]]},
+    {time:"4:00 PM",type:"Snack",name:"Orange & Seeds / برتقال وبذور",rows:[
+      ["Orange برتقال","1 medium · 15g CHO"],
+      ["Mixed seeds (sunflower + pumpkin)","15g"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Chicken Molokhia & Rice / ملوخية",rows:[
+      ["Grilled chicken شرائح","120g"],
+      ["Molokhia soup","1 cup"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Pickled vegetables","small side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]},
+  { day:"Day 7 / اليوم ٧", meals:[
+    {time:"7:00 AM",type:"Breakfast",name:"Oats & Egg / شوفان وبيض",rows:[
+      ["Oats شوفان (dry)","½ cup (40g) · 27g CHO"],
+      ["Full-fat milk","1 cup (to cook)"],
+      ["Banana موز","½ medium · 12g CHO"],
+      ["Honey عسل","1 tsp · 5g CHO"],
+      ["Boiled egg","1"],
+      ["Orange برتقال","1 medium · 15g CHO"]]},
+    {time:"10:00 AM",type:"Snack",name:"Dates & Walnuts / تمر وجوز",rows:[
+      ["Dates تمر","3 pieces · 20g CHO"],
+      ["Walnuts جوز","15g"]]},
+    {time:"1:00 PM",type:"Lunch",name:"Grilled Lamb & Rice / ضأن مشوي",rows:[
+      ["Grilled lean lamb ضأن","100g"],
+      ["Brown rice أرز بني","½ cup cooked · 22g CHO"],
+      ["Roasted vegetables خضار","½ cup"],
+      ["Tahini طحينة","1 tbsp"],
+      ["Salad","side"]]},
+    {time:"4:00 PM",type:"Snack",name:"Zabadi / زبادي",rows:[
+      ["Full-fat zabadi","1 cup"]]},
+    {time:"7:00 PM",type:"Dinner",name:"Shakshuka / شكشوكة",rows:[
+      ["Eggs in tomato sauce","3 eggs"],
+      ["Aish baladi","½ loaf (~50g) · 25g CHO"],
+      ["Spinach سبانخ","handful"],
+      ["Salad","side"]]},
+    {time:"10:00 PM",type:"Night Snack",name:"Warm Milk / لبن دافئ",rows:[
+      ["Full-fat milk","1 cup"],
+      ["Dates تمر","2 pieces · 13g CHO"]]}
+  ]}
+];
+
+const exactCals = [
+  [535, 135, 515, 197, 345, 197],  // Day 1 ~1924 kcal
+  [376, 175, 555, 135, 345, 197],  // Day 2 ~1783 kcal
+  [479, 140, 543, 197, 340, 197],  // Day 3 ~1896 kcal
+  [465, 190, 440, 149, 380, 197],  // Day 4 ~1821 kcal
+  [420, 135, 510, 197, 345, 197],  // Day 5 ~1804 kcal
+  [459, 120, 435, 135, 420, 197],  // Day 6 ~1766 kcal
+  [496, 157, 445, 149, 355, 197],  // Day 7 ~1799 kcal
+];
+
+let currentDay = 0;
+
+function renderDaySelector() {
+  const isAr = document.body.classList.contains('arabic');
+  document.getElementById('daySelector').innerHTML = mealPlans.map((d, i) => {
+    const parts = d.day.split(' / ');
+    const label = isAr ? (parts[1] || parts[0]) : parts[0];
+    return `<button class="day-btn ${i===0?'active':''}" onclick="selectDay(${i})">${label}</button>`;
+  }).join('');
+}
+
+function selectDay(idx) {
+  currentDay = idx;
+  document.querySelectorAll('.day-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
+  renderMeals();
+}
+
+function renderMeals() {
+  const plan = mealPlans[currentDay];
+  const isAr = document.body.classList.contains('arabic');
+  document.getElementById('mealTimeline').innerHTML = plan.meals.map((m, mi) => {
+    const nameParts = m.name.split(' / ');
+    const mealName = isAr ? (nameParts[1] || nameParts[0]) : nameParts[0];
+    const typeParts = m.type.split('/');
+    const mealType = isAr ? (typeParts[1] ? typeParts[1].trim() : typeParts[0]) : typeParts[0].trim();
+    return `
+    <div class="meal-block">
+      <div class="meal-time-col">
+        <div class="meal-time">${m.time}</div>
+        <div class="meal-type">${mealType}</div>
+      </div>
+      <div class="meal-dot"></div>
+      <div class="meal-content">
+        <div class="meal-name">🍽️ ${mealName}</div>
+        <div class="meal-rows">
+          ${m.rows.map(r=>`<div class="meal-row"><span class="item-name">${r[0]}</span><span class="item-qty">${r[1]}</span></div>`).join('')}
+        </div>
+        <span class="meal-cal">${exactCals[currentDay][mi]} kcal</span>
+      </div>
+    </div>`;
+  }).join('');
+  const dayTotal = exactCals[currentDay].reduce((a,b)=>a+b,0);
+  const totalLabel = isAr
+    ? `📊 مجموع اليوم: ${dayTotal} سعر حراري &nbsp;|&nbsp; الهدف: ١٨٠٠–٢٠٠٠ سعر`
+    : `📊 Daily Total: ${dayTotal} kcal &nbsp;|&nbsp; Target: 1,800–2,000 kcal`;
+  document.getElementById('mealTimeline').innerHTML += `<div style="margin-top:12px;padding:10px 16px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-radius:12px;font-weight:700;font-size:0.9rem;text-align:${isAr?'right':'left'}">${totalLabel}</div>`;
+}
+
+function showSection(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  if(lang === 'ar') {
+    document.body.classList.remove('en');
+    document.body.classList.add('arabic');
+    // Show all L-ar, hide all L-en
+    document.querySelectorAll('.L-en').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.L-ar').forEach(el => {
+      el.style.display = el.tagName === 'SPAN' || el.tagName === 'STRONG' ? 'inline' : 'block';
+    });
+    document.querySelectorAll('.lang-btn')[1].classList.add('active');
+  } else {
+    document.body.classList.remove('arabic');
+    document.body.classList.add('en');
+    // Show all L-en, hide all L-ar
+    document.querySelectorAll('.L-ar').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.L-en').forEach(el => {
+      el.style.display = el.tagName === 'SPAN' || el.tagName === 'STRONG' ? 'inline' : 'block';
+    });
+    document.querySelectorAll('.lang-btn')[0].classList.add('active');
+  }
+  renderDaySelector();
+  if(document.getElementById('plan').classList.contains('active')) renderMeals();
+}
+
+// Initialize
+renderDaySelector();
+renderMeals();
+</script>
+</body>
+</html>
